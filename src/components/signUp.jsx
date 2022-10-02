@@ -1,6 +1,28 @@
-import React from "react";
+import React, { useState } from 'react';
+import axios from 'axios';
 
 function SignUp() {
+
+  //Hooks
+  const[email, setEmail]=useState('')
+  const[name, setName]=useState('')
+  const[password, setPassword]=useState('')
+
+
+  function RegistrarUsuario(){
+    var nuevoUser = {
+      email: email,
+      name: name,
+      password: password
+    }
+    console.log(nuevoUser)
+
+    axios.post('api/register', nuevoUser)
+    .then(res =>{
+      alert(res.data)
+    })
+    .then(err => {console.log(err)})
+  }
 
   return (
     <div class="bg-grey-lighter min-h-screen flex flex-col">
@@ -27,6 +49,7 @@ function SignUp() {
                     <input
                       type="text"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      value={email} onChange={(e) => {setEmail(e.target.value)}}
                       id="exampleFormControlInput1"
                       placeholder="Correo electrónico"
                     />
@@ -36,6 +59,7 @@ function SignUp() {
                     <input
                       type="text"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      value={name} onChange={(e) => {setName(e.target.value)}}
                       id="exampleFormControlInput1"
                       placeholder="Usuario"
                     />
@@ -45,6 +69,7 @@ function SignUp() {
                     <input
                       type="password"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      value={password} onChange={(e) => {setPassword(e.target.value)}}
                       id="exampleFormControlInput1"
                       placeholder="Contraseña"
                     />
@@ -63,6 +88,7 @@ function SignUp() {
                     <button
                       class="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
                       type="button"
+                      onClick={RegistrarUsuario}
                       data-mdb-ripple="true"
                       data-mdb-ripple-color="light"
                       style={{ background: 'linear-gradient(to right, #00dfc3, #533eab, #9190ff, #6674ff, #261089)' }}
@@ -74,7 +100,7 @@ function SignUp() {
               <div class="text-grey-dark mt-8">
                 ¿Ya tienes una cuenta?
                   <a href="./login" class="no-underline border-b border-[#533eab] text-[#533eab] ml-1">
-                    Inicia sesión
+                    Iniciar sesión
                   </a>.
         </div>
       </div>

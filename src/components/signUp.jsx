@@ -1,27 +1,50 @@
 import React, { useState } from 'react';
+import Error from './error';
 import axios from 'axios';
 
 function SignUp() {
 
   //Hooks
-  const[email, setEmail]=useState('')
-  const[name, setName]=useState('')
-  const[password, setPassword]=useState('')
-
+  const [email, setEmail] = useState('')
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [passwordComfirm, setPasswordComfirm] = useState('')
+  const [error, setError] = useState(false)
+  const [message, setMessage] = useState('')
 
   function RegistrarUsuario(){
-    var nuevoUser = {
+
+    if ([name, email, password, passwordComfirm].includes('')) {
+      setMessage('Todos los campos son obligatorios')
+      setError(true)
+      return;
+    }
+
+    if (password !== passwordComfirm) {
+      setMessage('Las contraseñas no coinciden')
+      setError(true)
+      return;
+    }
+
+    setError(false)
+    const newUser = {
       email: email,
       name: name,
       password: password
     }
-    console.log(nuevoUser)
+    console.log(newUser)
 
-    axios.post('api/register', nuevoUser)
+    axios.post('api/register', newUser)
     .then(res =>{
       alert(res.data)
     })
     .then(err => {console.log(err)})
+
+    setEmail('')
+    setName('')
+    setMessage('')
+    setPassword('')
+    setPasswordComfirm('')
   }
 
   return (
@@ -79,14 +102,15 @@ function SignUp() {
                     <input
                       type="password"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                      value={passwordComfirm} onChange={(e) => {setPasswordComfirm(e.target.value)}}
                       id="exampleFormControlInput1"
                       placeholder="Confirmar contraseña"
                     />
                 </div>
-
+                {error && <Error message={message}/>}
                 <div class="text-center pt-1 pb-1 mt-8">
                     <button
-                      class="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
+                      class="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-xl focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
                       type="button"
                       onClick={RegistrarUsuario}
                       data-mdb-ripple="true"

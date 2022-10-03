@@ -73,19 +73,11 @@ function Login() {
                 </form>
               </div>
             </div>
-            <div
-              class="lg:w-6/12 flex items-center lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none"
-              style={{ background: 'linear-gradient(to left, #00dfc3, #533eab, #9190ff, #6674ff, #261089)' }}
-            >
-              <div class="text-white px-4 py-6 md:p-12 md:mx-6">
-                <img
-                src="https://i.ibb.co/gyLsdqg/imagen-2022-09-30-024256794.png"
-                class="rounded-lg shadow-2xl shadow-[#261089]"
-                alt="Butterfly" />
-                <p class="text-sm">
-                </p>
-              </div>
-                </div>
+            <img
+              class="lg:w-6/12 lg:rounded-r-lg rounded-b-lg lg:rounded-bl-none object-cover"
+              src="https://i.ibb.co/pw4mS2p/imagen-2022-10-01-175249651.png"
+              alt="Butterfly"
+            />
               </div>
             </div>
           </div>

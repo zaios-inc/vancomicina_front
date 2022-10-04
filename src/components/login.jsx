@@ -1,12 +1,46 @@
-import React from "react";
+import React, { useState } from 'react';
+import axios from 'axios';
+import Error from './error';
 import { useNavigate } from "react-router-dom";
 
 function Login() {
+
+  //Hooks
+  const [name, setName] = useState('')
+  const [password, setPassword] = useState('')
+  const [error, setError] = useState(false)
+  const [message, setMessage] = useState('')
 
   const navigate = useNavigate();
 
   const navigateToSignUp = () => {
     navigate("../register");
+  }
+
+  function LoginUsuario(){
+
+    if ([name, password].includes('')) {
+      setMessage('Todos los campos son obligatorios')
+      setError(true)
+      return;
+    }
+    setError(false)
+
+    const loginUser = {
+      name: name,
+      password: password
+    }
+    axios.post('/user/login', loginUser).then(res => {
+      if(res.data === 'YES'){
+        navigate("/")
+      }else{
+        alert('usuario no encontrado')
+      }
+    })
+
+    setName('')
+    setMessage('')
+    setPassword('')
   }
 
   return (
@@ -32,6 +66,7 @@ function Login() {
                       type="text"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput1"
+                      value={name} onChange={(e) => {setName(e.target.value)}}
                       placeholder="Usuario"
                     />
                   </div>
@@ -41,16 +76,19 @@ function Login() {
                       type="password"
                       class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                       id="exampleFormControlInput1"
+                      value={password} onChange={(e) => {setPassword(e.target.value)}}
                       placeholder="Contraseña"
                     />
                   </div>
 
+                  {error && <Error message={message}/>}
                   <div class="text-center pt-1 mb-12 pb-1">
                     <button
                       class="inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3"
                       type="button"
                       data-mdb-ripple="true"
                       data-mdb-ripple-color="light"
+                      onClick={LoginUsuario}
                       style={{ background: 'linear-gradient(to right, #00dfc3, #533eab, #9190ff, #6674ff, #261089)' }}
                     >
                       Iniciar sesión

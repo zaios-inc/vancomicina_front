@@ -32,9 +32,8 @@ function SignUp() {
       name: name,
       password: password
     }
-    console.log(newUser)
 
-    axios.post('api/register', newUser)
+    axios.post('/user/register', newUser)
     .then(res =>{
       alert(res.data)
     })

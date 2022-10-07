@@ -1,8 +1,11 @@
 import { Card, CardBody, Input, CardHeader, Typography,Button, CardFooter, Select, Option } from '@material-tailwind/react';
 import React from 'react'
+import SingleSelect from './selectAntibiot';
 import Sidebar from './sidebar';
 
+
 function PatientRegistry() {
+
   return (
     <div className='flex min-h-screen bg-purple-50'>
 
@@ -59,7 +62,7 @@ function PatientRegistry() {
 
       <div className='pt-3'>
         <Button variant="gradient" fullWidth color='purple'>
-          Calcular
+          Nuevo paciente
         </Button>
       </div>
 
@@ -67,11 +70,8 @@ function PatientRegistry() {
     </Card>
         </div>
 
-      <div className='py-36 pl-10'>
-        <input type="text" list="antibiotics" className='rounded-lg w-60 shadow-md shadow-[#9190ff]'/>
-          <datalist id="antibiotics">
-            <option>The best capstone</option>
-          </datalist>
+      <div className='py-36 pl-10 w-96'>
+        <SingleSelect/>
       </div>
 
     </div>

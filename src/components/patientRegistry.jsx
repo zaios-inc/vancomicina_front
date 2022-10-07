@@ -16,7 +16,7 @@ function PatientRegistry() {
         </div>
 
         <div className='pl-60 py-32'>
-          <Card className="w-96 shadow-2xl shadow-[#9190ff]">
+          <Card className="w-96 shadow-2xl shadow-[#9190ff] z-10">
             <CardHeader
               variant="gradient"
               className="grid h-20 place-items-center shadow-lg shadow-[#9190ff]"
@@ -58,7 +58,7 @@ function PatientRegistry() {
             <CardFooter className="pt-0">
 
               <div>
-                <Button variant="gradient" fullWidth color='purple'>
+                <Button variant="gradient" fullWidth color='purple' className='z-0'>
                   Calcular
                 </Button>
               </div>
@@ -73,7 +73,7 @@ function PatientRegistry() {
           </Card>
         </div>
 
-        <div className='py-36 pl-10 w-96'>
+        <div className='py-36 pl-10 w-96 z-10'>
           <SingleSelect />
         </div>
         <ParticlesBackground />

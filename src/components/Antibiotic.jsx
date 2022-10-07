@@ -55,7 +55,7 @@ function Antibiotic() {
       </div>
       <div>
         <div className="antialiased flex text-gray-900" style={{ background: 'linear-gradient(to right, #261089, #533eab, #9190ff, #6674ff, #261089)' }}>
-          <div className="container bg-white border px-4 rounded-t-xl rounded-b-xl shadow-2xl relative mx-auto max-w-2xl w-full my-32  inputs space-y-6">
+          <div className="container bg-white border px-4 rounded-t-xl rounded-b-xl shadow-2xl relative mx-auto max-w-2xl w-full my-32  inputs space-y-6 z-10">
             <h1 className="text-2xl font-bold mt-3 uppercase">Ingresar <span className='text-blue-700'>Antibiotico</span></h1>
             <div className="flex">
               <div className="w-full justify-center text-center items-center">
@@ -149,9 +149,9 @@ function Antibiotic() {
               </button>
             </div>
           </div>
+          <ParticlesBackground />
         </div>
       </div>
-      <ParticlesBackground />
     </div>
 
   )

@@ -33,7 +33,6 @@ function SignUp() {
       name: name,
       password: password
     }
-    let timerInterval 
     Swal.fire({
         icon: 'info',
         title: 'Creando tu usuario...',
@@ -41,7 +40,7 @@ function SignUp() {
         didOpen: () => {
             Swal.showLoading()
             const b = Swal.getHtmlContainer().querySelector('b')
-            timerInterval = setInterval(() => {
+            let timerInterval = setInterval(() => {
             b.textContent = Swal.getTimerLeft()
           }, 100)
       }

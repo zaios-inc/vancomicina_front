@@ -18,7 +18,6 @@ function App() {
 			<Routes>
 				<Route exact path="/register" element={<SignUp/>}/>
 				<Route exact path="/login" element={<Login setLogin={setLogin}/>}/>
-				{console.log(login)}
 				{login && <Route exact path="/home" element={<Home/>}/>}
 				{login && <Route exact path="/select" element={<Select />}/>}
 				{login && <Route exact path="/patient" element={<PatientRegistry />}/>}

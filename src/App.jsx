@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import SignUp from "./components/signUp";
 import Login from "./components/login";
 import Select from "./components/Select";
@@ -9,18 +10,22 @@ import Home from "./components/home";
 
 
 function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route exact path="/login" element={<Login/>}/>
-        <Route exact path="/register" element={<SignUp/>}/>
-        <Route exact path="/select" element={<Select />}/>
-        <Route exact path="/patient" element={<PatientRegistry />}/>
-        <Route exact path="/antibiotic" element={<Antibiotic />}/>
-        <Route exact path="/home" element={<Home/>}/>
-      </Routes>
-  </Router>
-  );
+
+	const [login, setLogin] = useState(false)
+
+	return (
+		<Router>
+			<Routes>
+				<Route exact path="/register" element={<SignUp/>}/>
+				<Route exact path="/login" element={<Login setLogin={setLogin}/>}/>
+				{console.log(login)}
+				{login && <Route exact path="/home" element={<Home/>}/>}
+				{login && <Route exact path="/select" element={<Select />}/>}
+				{login && <Route exact path="/patient" element={<PatientRegistry />}/>}
+				{login && <Route exact path="/antibiotic" element={<Antibiotic />}/>}
+			</Routes>
+	</Router>
+	);
 }
 
 export default App;

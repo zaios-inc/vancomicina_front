@@ -2,22 +2,31 @@ import { useState } from 'react'
 import axios from 'axios'
 import Sidebar from './sidebar'
 import ParticlesBackground from './particles'
+import Error from './error'
 
 function Antibiotic() {
 
-  const [max1, setMax1] = useState('0')
-  const [max2, setMax2] = useState('0')
-  const [max3, setMax3] = useState('0')
-  const [min1, setMin1] = useState('0')
-  const [min2, setMin2] = useState('0')
-  const [min3, setMin3] = useState('0')
+  const [max1, setMax1] = useState('')
+  const [max2, setMax2] = useState('')
+  const [max3, setMax3] = useState('')
+  const [min1, setMin1] = useState('')
+  const [min2, setMin2] = useState('')
+  const [min3, setMin3] = useState('')
   const [recomended1, setRecomended1] = useState('')
   const [recomended2, setRecomended2] = useState('')
   const [recomended3, setRecomended3] = useState('')
   const [antibiotic, setAntibiotic] = useState('')
+  const [message, setMessage] = useState('')
+  const [error, setError] = useState(false)
 
   function createAntibiotic() {
 
+    if ([min1, min2, max1, max2, recomended1, recomended2].includes('')) {
+          setMessage('Diligienciar al menos dos recomendaciones')
+          setError(true)
+          return;
+      }
+    setError(false)
     const newantibiotic = {
       name: antibiotic,
       min1: parseInt(min1),
@@ -37,12 +46,12 @@ function Antibiotic() {
       .then(err => { console.log(err) })
 
     setAntibiotic('')
-    setMax1('0')
-    setMax2('0')
-    setMax3('0')
-    setMin1('0')
-    setMin2('0')
-    setMin3('0')
+    setMax1('')
+    setMax2('')
+    setMax3('')
+    setMin1('')
+    setMin2('')
+    setMin3('')
     setRecomended1('')
     setRecomended2('')
     setRecomended3('')
@@ -63,6 +72,7 @@ function Antibiotic() {
                 <input
                   className="border border-gray-400 drop-shadow-lg px-4 py-1 m-auto mb-3 mt-3 mx-2 w-1/2 rounded focus:outline-none focus:border-blue-700"
                   type="text"
+                  placeholder='Cefazolina'
                   value={antibiotic}
                   onChange={(e) => { setAntibiotic(e.target.value) }}
                 />
@@ -77,18 +87,21 @@ function Antibiotic() {
                 <input
                   className="block border border-gray-400 drop-shadow-lg px-2 py-2 m-auto mb-3 mt-3 w-3/4 text-center rounded focus:outline-none focus:border-blue-700"
                   type="number"
+                  placeholder='50'
                   value={min1}
                   onChange={(e) => { (setMin1(e.target.value)) }}
                 />
                 <input
                   className="block border border-gray-400 drop-shadow-lg px-2 py-2 m-auto mb-3 w-3/4 text-center rounded focus:outline-none focus:border-blue-700"
                   type="number"
+                  placeholder='10'
                   value={min2}
                   onChange={(e) => { setMin2((e.target.value)) }}
                 />
                 <input
                   className="block border border-gray-400 drop-shadow-lg px-2 py-2 m-auto w-3/4 text-center rounded focus:outline-none focus:border-blue-700"
                   type="number"
+                  placeholder='0'
                   value={min3}
                   onChange={(e) => { setMin3(e.target.value) }}
                 />
@@ -98,18 +111,21 @@ function Antibiotic() {
                 <input
                   className="block border border-gray-400 drop-shadow-lg px-2 py-2 m-auto mb-3 mt-3 w-3/4 text-center rounded focus:outline-none focus:border-blue-700"
                   type="number"
+                  placeholder='200'
                   value={max1}
                   onChange={(e) => { setMax1(e.target.value) }}
                 />
                 <input
                   className="block border border-gray-400 drop-shadow-lg px-2 py-2 m-auto mb-3 w-3/4 text-center rounded focus:outline-none focus:border-blue-700"
                   type="number"
+                  placeholder='50'
                   value={max2}
                   onChange={(e) => { setMax2(e.target.value) }}
                 />
                 <input
                   className="block border border-gray-400 drop-shadow-lg px-2 py-2 m-auto w-3/4 text-center rounded focus:outline-none focus:border-blue-700"
                   type="number"
+                  placeholder='10'
                   value={max3}
                   onChange={(e) => { setMax3(e.target.value) }}
                 />
@@ -119,23 +135,27 @@ function Antibiotic() {
                 <input
                   className="block border border-gray-400 drop-shadow-lg px-4 py-2 w-full mt-3 mb-3 rounded focus:outline-none focus:border-blue-700"
                   type="text"
+                  placeholder='1 a 2 g EV cada 8 hrs'
                   value={recomended1}
                   onChange={(e) => { setRecomended1(e.target.value) }}
                 />
                 <input
                   className="block border border-gray-400 drop-shadow-lg px-4 py-2 w-full m-auto mb-3 rounded focus:outline-none focus:border-blue-700"
                   type="text"
+                  placeholder='1 a 2 g EV cada 12 hrs'
                   value={recomended2}
                   onChange={(e) => { setRecomended2(e.target.value) }}
                 />
                 <input
                   className="block border border-gray-400 drop-shadow-lg px-4 py-2 w-full m-auto mb-4 rounded focus:outline-none focus:border-blue-700"
                   type="text"
+                  placeholder='2g EV cada 24 hrs'
                   value={recomended3}
                   onChange={(e) => { setRecomended3(e.target.value) }}
                 />
               </div>
             </form>
+            {error && <Error message={message}/>}
             <div class="text-center pt-1 pb-1 mt-8">
               <button
                 className="inline-block px-6 py-5 m-auto text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-xl focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-10"

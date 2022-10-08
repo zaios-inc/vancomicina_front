@@ -3,7 +3,7 @@ import axios from 'axios';
 import Error from './error';
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login({ setLogin }) {
 
   //Hooks
   const [name, setName] = useState('')
@@ -32,7 +32,8 @@ function Login() {
     }
     axios.post('/user/login', loginUser).then(res => {
       if(res.data === 'YES'){
-        navigate("/")
+        setLogin(true)
+        navigate("../home")
       }else{
         alert('usuario no encontrado')
       }

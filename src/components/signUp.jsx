@@ -129,7 +129,7 @@ function SignUp() {
                       onClick={RegistrarUsuario}
                       data-mdb-ripple="true"
                       data-mdb-ripple-color="light"
-                      style={{ background: 'linear-gradient(to right, #261089, #6674ff, #9190ff, #6674ff, #261089)' }}
+                      style={{ background: 'linear-gradient(to right, #00dfc3, #533eab, #9190ff, #6674ff, #261089)' }}
                     >
                       Registrarse
                     </button>

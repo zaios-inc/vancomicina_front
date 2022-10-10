@@ -1,16 +1,12 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import { AiFillHome } from 'react-icons/ai'
-import { FaHospitalUser } from 'react-icons/fa'
-import { GiMedicines } from 'react-icons/gi'
-import { MdAccountCircle } from 'react-icons/md'
 
 function Sidebar() {
   const [showSidebar, setShowSidebar] = useState('-left-64');
 
   return (
     <div
-      className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-2xl shadow-[#9190ff] bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
+      className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-2xl shadow-[#212121] bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
     >
       <div className="flex-col items-stretch min-h-full flex-nowrap px-0 relative">
         <a
@@ -19,7 +15,7 @@ function Sidebar() {
           rel="noreferrer"
           className="mt-2 text-center w-full inline-block"
         >
-          <div className="text center font-bold text-xl">Monitoreo de fármacos</div>
+          <div className="text center font-black text-xl select-none">Monitoreo de fármacos</div>
         </a>
         <div className="flex flex-col">
           <hr className="my-4 min-w-full" />
@@ -34,25 +30,9 @@ function Sidebar() {
               >
                 <div className="flex items-center">
                   <div className="text-2xl">
-                    <AiFillHome />
+                    <img src='https://cdn-icons-png.flaticon.com/512/3209/3209074.png' className='w-8' />
                   </div>
-                  <p className="text-lg pl-3 text-black text-center">Inicio</p>
-                </div>
-              </NavLink>
-            </li>
-
-            <li className="rounded-lg mb-4">
-              <NavLink
-                to="/patient"
-                exact
-                className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
-                activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
-              >
-                <div className="flex items-center">
-                  <div className="text-2xl">
-                    <FaHospitalUser />
-                  </div>
-                  <p className="text-lg pl-3 text-black text-center">Paciente</p>
+                  <p className="text-lg pl-3 text-black text-center select-none">Inicio</p>
                 </div>
               </NavLink>
             </li>
@@ -66,9 +46,25 @@ function Sidebar() {
               >
                 <div className="flex items-center">
                   <div className="text-2xl">
-                    <GiMedicines />
+                    <img src='https://cdn-icons-png.flaticon.com/512/822/822092.png' className='w-8'/>
                   </div>
-                  <p className="text-lg pl-3 text-black text-center">Antibióticos</p>
+                  <p className="text-lg pl-3 text-black text-center select-none">Antibióticos</p>
+                </div>
+              </NavLink>
+            </li>
+
+            <li className="rounded-lg mb-4">
+              <NavLink
+                to="/patient"
+                exact
+                className="flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg"
+                activeClassName="bg-gradient-to-tr from-light-blue-500 to-light-blue-700 text-white shadow-md"
+              >
+                <div className="flex items-center">
+                  <div className="text-2xl">
+                    <img src='https://cdn-icons-png.flaticon.com/512/2718/2718083.png' className='w-9' />
+                  </div>
+                  <p className="text-lg pl-3 text-black text-center select-none">Paciente</p>
                 </div>
               </NavLink>
             </li>
@@ -84,9 +80,9 @@ function Sidebar() {
               <div className="mx-auto">
                 <div className="flex flex-col mx-auto items-center">
                   <div className="text-5xl">
-                    <MdAccountCircle />
+                    <img src='https://cdn-icons-png.flaticon.com/512/3033/3033143.png' className='w-11' />
                   </div>
-                  <p className="text-xl text-center font-semibold text-black">Cuenta</p>
+                  <p className="text-xl text-center font-semibold text-black select-none">Cuenta</p>
                 </div>
               </div>
 

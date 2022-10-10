@@ -12,9 +12,10 @@ class SingleSelect extends Component {
                 <Select
                     className="basic-single"
                     classNamePrefix="select"
-                    defaultValue={colourOptions[0]}
+                    defaultValue={colourOptions[1]}
                     isClearable={true}
                     isSearchable={true}
+                    isDisabled={true}
                     name="color"
                     options={colourOptions}
                 />

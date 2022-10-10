@@ -8,9 +8,15 @@ function Home() {
       <div className='w-1/6'>
         <Sidebar />
       </div>
+
       <div className='pl-64'>
-        <ParticlesBackground />
+        <div style={{ background: 'linear-gradient(to right, #261089, #533eab, #9190ff, #6674ff, #261089)' }} >
+          <div style={{ backgroundImage: 'url(https://i.ibb.co/kgvsYPX/Zaios-Logo-nobg.png)' }} className='bg-no-repeat bg-center' >
+            <ParticlesBackground />
+          </div>
+        </div>
       </div>
+
     </div>
   )
 }

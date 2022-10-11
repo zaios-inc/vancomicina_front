@@ -5,7 +5,6 @@ import SingleSelect from './selectAntibiot';
 import Error from './error';
 import Sidebar from './sidebar';
 import axios from 'axios';
-import { setEnable } from './enable';
 
 
 function PatientRegistry() {
@@ -14,9 +13,10 @@ function PatientRegistry() {
     const [creatinina, setCreatinina] = useState('')
     const [age, setAge] = useState('')
     const [weight, setWeight] = useState('')
-    const [genre, setGenre] = useState('')
+    const [genre, setGenre] = useState(1)
     const [error, setError] = useState(false)
     const [message, setMessage] = useState('')
+    const [enable, setEnable] = useState(true)
 
 
 
@@ -27,8 +27,6 @@ function PatientRegistry() {
         }
       })
     }, []);*/
-
-
   function sendBackend() {
 
     if ([height, creatinina, age, weight, genre].includes('')) {
@@ -129,30 +127,28 @@ function PatientRegistry() {
                         onChange={(e) => {(setCreatinina(e.target.value))}}
                         />
                       <div class=" pt-5">
-                        <label class="pr-2">
+                        <label for="man" class="pr-2">
                           <input
                             type="radio"
-                            name="genero"
-                            value="Hombre"
-                            onChange={(e) => {setGenre(e.target.value)}}
-
+                            id="man"
+                            checked={genre === "men" ? true : false}
+                            onChange={() => {setGenre("men")}}
                           />
                           <span> Hombre </span>
                         </label>
 
-                        <label>
+                        <label for="woman">
                           <input
                             type="radio"
-                            name="genero"
-                            value="Mujer"
-                            onChange={(e) => {setGenre(e.target.value)}}
+                            id="woman"
+                            checked={genre === "woman" ? true : false}
+                            onChange={() => {setGenre("woman")}}
                           />
                           <span> Mujer </span>
                         </label>
                       </div>
 
                       <div className="-ml-2.5">
-                        
                       </div>
                     </CardBody>
                   </div>
@@ -164,7 +160,9 @@ function PatientRegistry() {
                         </Typography>
                       </div>
                       <div className='pt-2'>
-                        <SingleSelect />
+                        <SingleSelect 
+                          enable={enable}
+                        />
                       </div>
                     </CardBody>
                   </div>

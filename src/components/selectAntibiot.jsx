@@ -1,12 +1,14 @@
 import React, { Component, Fragment } from 'react';
 import Select from 'react-select';
 import { colourOptions } from './data';
+import { enable } from './enable';
+
 
 
 class SingleSelect extends Component {
 
-    render() {
 
+    render() {
         return (
             <Fragment>
                 <Select
@@ -15,7 +17,7 @@ class SingleSelect extends Component {
                     defaultValue={colourOptions[1]}
                     isClearable={true}
                     isSearchable={true}
-                    isDisabled={true}
+                    isDisabled={enable}
                     name="color"
                     options={colourOptions}
                 />

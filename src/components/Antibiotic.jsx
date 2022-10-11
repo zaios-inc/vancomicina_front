@@ -1,23 +1,40 @@
 import { useState } from 'react'
 import axios from 'axios'
 import Sidebar from './sidebar'
+import Error from './error'
 import ParticlesBackground from './particles'
 import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter } from '@material-tailwind/react';
 
 function Antibiotic() {
 
-  const [max1, setMax1] = useState('0')
-  const [max2, setMax2] = useState('0')
-  const [max3, setMax3] = useState('0')
-  const [min1, setMin1] = useState('0')
-  const [min2, setMin2] = useState('0')
-  const [min3, setMin3] = useState('0')
+  const [max1, setMax1] = useState('')
+  const [max2, setMax2] = useState('')
+  const [max3, setMax3] = useState('')
+  const [min1, setMin1] = useState('')
+  const [min2, setMin2] = useState('')
+  const [min3, setMin3] = useState('')
   const [recomended1, setRecomended1] = useState('')
   const [recomended2, setRecomended2] = useState('')
   const [recomended3, setRecomended3] = useState('')
   const [antibiotic, setAntibiotic] = useState('')
+  const [error, setError] = useState(false)
+  const [message, setMessage] = useState('')
+
+    /*useEffect(() => {
+      document.querySelectorAll('input[type="number"]').forEach(input => {
+        input.oninput = () => {
+          if(input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength);
+        }
+      })
+    }, []);*/
 
   function createAntibiotic() {
+
+    if ([min1, min2, max1, max2, recomended1, recomended2, antibiotic].includes('')){
+      setMessage('Registre como minimo dos recomendaciones')
+      setError(true)
+      return;
+    }
 
     const newantibiotic = {
       name: antibiotic,
@@ -38,12 +55,12 @@ function Antibiotic() {
       .then(err => { console.log(err) })
 
     setAntibiotic('')
-    setMax1('0')
-    setMax2('0')
-    setMax3('0')
-    setMin1('0')
-    setMin2('0')
-    setMin3('0')
+    setMax1('')
+    setMax2('')
+    setMax3('')
+    setMin1('')
+    setMin2('')
+    setMin3('')
     setRecomended1('')
     setRecomended2('')
     setRecomended3('')
@@ -70,7 +87,11 @@ function Antibiotic() {
             <CardBody className="flex flex-col gap-4">
 
               <div className='mx-auto'>
-                <Input className='text-center' type="text" variant="standard" size="lg" color='purple' placeholder='Nombre antibiótico' />
+                <Input className='text-center' type="text" variant="standard" size="lg" color='purple' 
+                  placeholder='Nombre antibiótico' 
+                  value={antibiotic}
+                  onChange={(e) => { setAntibiotic(e.target.value) }}
+                />
               </div>
 
               <div className='flex'>
@@ -105,11 +126,15 @@ function Antibiotic() {
                       type="number"
                       class="text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder='0'
+                      value={min1}
+                      onChange={(e) => { (setMin1(e.target.value)) }}
                     />
                     <input
                       type="number"
                       class="text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder='0'
+                      value={max1}
+                      onChange={(e) => { setMax1(e.target.value) }}
                     />
                   </div>
                 </div>
@@ -119,6 +144,8 @@ function Antibiotic() {
                       type="text"
                       class="text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder='Dosis (g) - Tiempo (hrs)'
+                      value={recomended1}
+                      onChange={(e) => { setRecomended1(e.target.value) }}
                     />
                   </div>
                 </div>
@@ -131,11 +158,15 @@ function Antibiotic() {
                       type="number"
                       class="text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder='0'
+                      value={min2}
+                      onChange={(e) => { setMin2((e.target.value)) }}
                     />
                     <input
                       type="number"
                       class="text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder='0'
+                      value={max2}
+                      onChange={(e) => { setMax2(e.target.value) }}
                     />
                   </div>
                 </div>
@@ -145,6 +176,8 @@ function Antibiotic() {
                       type="text"
                       class="text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder='Dosis (g) - Tiempo (hrs)'
+                      value={recomended2}
+                      onChange={(e) => { setRecomended2(e.target.value) }}
                     />
                   </div>
                 </div>
@@ -157,11 +190,16 @@ function Antibiotic() {
                       type="number"
                       class="text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder='0'
+                      value={min3}
+                      onChange={(e) => { setMin3(e.target.value) }}
+
                     />
                     <input
                       type="number"
                       class="text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder='0'
+                      value={max3}
+                      onChange={(e) => { setMax3(e.target.value) }}
                     />
                   </div>
                 </div>
@@ -171,17 +209,23 @@ function Antibiotic() {
                       type="text"
                       class="text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder='Dosis (g) - Tiempo (hrs)'
+                      value={recomended3}
+                      onChange={(e) => { setRecomended3(e.target.value) }}
                     />
                   </div>
                 </div>
               </div>
 
             </CardBody>
+            <div>
+              {error && <Error message={message}/>}
+            </div>
             <CardFooter className="pt-0">
 
               <div className='pt-5'>
                 <Button variant="gradient" fullWidth color='deep-purple' className='z-0'
-                  style={{ background: 'linear-gradient(to right, #261089, #533eab, #6674ff, #533eab, #261089)' }}>
+                  style={{ background: 'linear-gradient(to right, #261089, #533eab, #6674ff, #533eab, #261089)' }}
+                  onClick={createAntibiotic}>
                   Registrar
                 </Button>
               </div>

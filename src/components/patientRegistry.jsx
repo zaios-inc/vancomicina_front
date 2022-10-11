@@ -1,10 +1,67 @@
 import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter } from '@material-tailwind/react';
-import React from 'react'
+import { useState } from 'react'
 import ParticlesBackground from './particles';
 import SingleSelect from './selectAntibiot';
+import Error from './error';
 import Sidebar from './sidebar';
+import axios from 'axios';
+import { setEnable } from './enable';
+
 
 function PatientRegistry() {
+
+    const [height, setHeight] = useState('')
+    const [creatinina, setCreatinina] = useState('')
+    const [age, setAge] = useState('')
+    const [weight, setWeight] = useState('')
+    const [genre, setGenre] = useState('')
+    const [error, setError] = useState(false)
+    const [message, setMessage] = useState('')
+
+
+
+    /*useEffect(() => {
+      document.querySelectorAll('input[type="number"]').forEach(input => {
+        input.oninput = () => {
+          if(input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength);
+        }
+      })
+    }, []);*/
+
+
+  function sendBackend() {
+
+    if ([height, creatinina, age, weight, genre].includes('')) {
+      setMessage('Todos los campos son obligatorios')
+      setError(true)
+      return;
+    }
+    setError(false)
+    setEnable(false)
+    const dataPatient = {
+      height: parseFloat(height),
+      creatinina: parseFloat(creatinina),
+      age: parseFloat(age),
+      weight: parseFloat(weight),
+      genre,
+    }
+    console.log(dataPatient)
+    axios.post('/patient/DataPatient', dataPatient).then(res => {
+      if(res.data === 'YES'){
+  
+      }else{
+        alert('usuario no encontrado')
+      }
+    })
+  }
+  function reload() {
+    setEnable(true)
+    setAge('')
+    setCreatinina('')
+    setGenre('')
+    setHeight('')
+    setWeight('')
+  }
 
   return (
     <div className='flex'>
@@ -36,16 +93,49 @@ function PatientRegistry() {
                           Datos del paciente
                         </Typography>
                       </div>
-                      <Input type="number" label="Altura (cm)" variant="standard" size="lg" color='teal' />
-                      <Input type="number" label="Peso (kg)" variant="standard" size="lg" color='teal' />
-                      <Input type="number" label="Edad" variant="standard" size="lg" color='teal' />
-                      <Input type="number" label="Creatinina (mg/dL)" variant="standard" size="lg" color='teal' />
+                      <Input 
+                        type="number" 
+                        label="Altura (cm)" 
+                        variant="standard" 
+                        size="lg" 
+                        color='teal' 
+                        value={height}
+                        onChange={(e) => {(setHeight(e.target.value))}}
+                        />
+                      <Input 
+                        type="number"
+                        label="Peso (kg)"
+                        variant="standard"
+                        size="lg" 
+                        color='teal' 
+                        value={weight}
+                        onChange={(e) => {(setWeight(e.target.value))}}
+                        />
+                      <Input type="number" 
+                        label="Edad" 
+                        variant="standard"
+                        size="lg" 
+                        color='teal' 
+                        value={age}
+                        onChange={(e) => {(setAge(e.target.value))}}
+                        />
+                      <Input 
+                        type="number" 
+                        label="Creatinina (mg/dL)" 
+                        variant="standard" 
+                        size="lg" 
+                        color='teal' 
+                        value={creatinina}
+                        onChange={(e) => {(setCreatinina(e.target.value))}}
+                        />
                       <div class=" pt-5">
                         <label class="pr-2">
                           <input
                             type="radio"
                             name="genero"
                             value="Hombre"
+                            onChange={(e) => {setGenre(e.target.value)}}
+
                           />
                           <span> Hombre </span>
                         </label>
@@ -55,17 +145,17 @@ function PatientRegistry() {
                             type="radio"
                             name="genero"
                             value="Mujer"
+                            onChange={(e) => {setGenre(e.target.value)}}
                           />
                           <span> Mujer </span>
                         </label>
                       </div>
 
                       <div className="-ml-2.5">
-                        Poner mensaje de error aquí
+                        
                       </div>
                     </CardBody>
                   </div>
-
                   <div className='w-1/2'>
                     <CardBody className="flex flex-col gap-4">
                       <div className='text-center'>
@@ -79,12 +169,14 @@ function PatientRegistry() {
                     </CardBody>
                   </div>
                 </div>
-
                 <CardFooter className="pt-0">
-
+                <div className='mb-2'>
+                    {error && <Error message={message}/>}
+                </div>
                   <div>
                     <Button variant="gradient" fullWidth color='teal' className='z-0'
                       style={{ background: 'linear-gradient(to right, #4db6ac, #26a69a, #00897b , #26a69a , #4db6ac)' }}
+                      onClick={sendBackend}
                     >
                       Calcular
                     </Button>
@@ -93,8 +185,8 @@ function PatientRegistry() {
                   <div className='pt-3'>
                     <Button variant="gradient" fullWidth color='teal'
                       style={{ background: 'linear-gradient(to right, #4db6ac, #26a69a, #00897b , #26a69a , #4db6ac)' }}
+                      onClick={reload}
                     >
-
                       Nuevo paciente
                     </Button>
                   </div>

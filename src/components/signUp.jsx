@@ -41,7 +41,7 @@ function SignUp() {
         didOpen: () => {
             Swal.showLoading();
             const b = Swal.getHtmlContainer().querySelector('b');
-            let timerInterval = setInterval(() => {
+            setInterval(() => {
             b.textContent = Swal.getTimerLeft();
           }, 100)
       }
@@ -138,7 +138,7 @@ function SignUp() {
           </div>
               <div class='text-grey-dark mt-8'>
                 ¿Ya tienes una cuenta?
-                  <a href='./login' class='no-underline border-b border-[#533eab] text-[#533eab] ml-1'>
+                  <a href='/' class='no-underline border-b border-[#533eab] text-[#533eab] ml-1'>
                     Iniciar sesión
                   </a>.
         </div>

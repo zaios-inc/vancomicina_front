@@ -29,7 +29,8 @@ function Sidebar() {
               >
                 <div className='flex items-center'>
                   <div className='text-2xl'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/3209/3209074.png' className='w-8' />
+                    <img src='https://cdn-icons-png.flaticon.com/512/3209/3209074.png' className='w-8'
+                      alt='Icono inicio' />
                   </div>
                   <p className='text-lg pl-3 text-black text-center select-none'>Inicio</p>
                 </div>
@@ -44,7 +45,8 @@ function Sidebar() {
               >
                 <div className='flex items-center'>
                   <div className='text-2xl'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/822/822092.png' className='w-8'/>
+                    <img src='https://cdn-icons-png.flaticon.com/512/822/822092.png' className='w-8'
+                      alt='Icono antibióticos'/>
                   </div>
                   <p className='text-lg pl-3 text-black text-center select-none'>Antibióticos</p>
                 </div>
@@ -59,7 +61,8 @@ function Sidebar() {
               >
                 <div className='flex items-center'>
                   <div className='text-2xl'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/2718/2718083.png' className='w-9' />
+                    <img src='https://cdn-icons-png.flaticon.com/512/2718/2718083.png' className='w-9' 
+                      alt='Icono paciente'/>
                   </div>
                   <p className='text-lg pl-3 text-black text-center select-none'>Paciente</p>
                 </div>
@@ -76,12 +79,12 @@ function Sidebar() {
               <div className='mx-auto'>
                 <div className='flex flex-col mx-auto items-center'>
                   <div className='text-5xl'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/3033/3033143.png' className='w-11' />
+                    <img src='https://cdn-icons-png.flaticon.com/512/3033/3033143.png' className='w-11'
+                      alt='Icono cuenta' />
                   </div>
                   <p className='text-xl text-center font-semibold text-black select-none'>Cuenta</p>
                 </div>
               </div>
-
             </NavLink>
           </ul>
         </div>

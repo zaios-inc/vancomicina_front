@@ -6,36 +6,34 @@ import Error from './error';
 import Sidebar from './sidebar';
 import axios from 'axios';
 
-
 function PatientRegistry() {
 
-    const [height, setHeight] = useState('')
-    const [creatinina, setCreatinina] = useState('')
-    const [age, setAge] = useState('')
-    const [weight, setWeight] = useState('')
-    const [genre, setGenre] = useState(1)
-    const [error, setError] = useState(false)
-    const [message, setMessage] = useState('')
-    const [enable, setEnable] = useState(true)
+  const [height, setHeight] = useState('');
+  const [creatinina, setCreatinina] = useState('');
+  const [age, setAge] = useState('');
+  const [weight, setWeight] = useState('');
+  const [genre, setGenre] = useState(1);
+  const [error, setError] = useState(false);
+  const [message, setMessage] = useState('');
+  const [enable, setEnable] = useState(true);
 
+  /*useEffect(() => {
+    document.querySelectorAll('input[type='number']').forEach(input => {
+      input.oninput = () => {
+        if(input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength);
+      }
+    })
+  }, []);*/
 
-
-    /*useEffect(() => {
-      document.querySelectorAll('input[type="number"]').forEach(input => {
-        input.oninput = () => {
-          if(input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength);
-        }
-      })
-    }, []);*/
   function sendBackend() {
 
     if ([height, creatinina, age, weight, genre].includes('')) {
-      setMessage('Todos los campos son obligatorios')
-      setError(true)
+      setMessage('Todos los campos son obligatorios');
+      setError(true);
       return;
     }
-    setError(false)
-    setEnable(false)
+    setError(false);
+    setEnable(false);
     const dataPatient = {
       height: parseFloat(height),
       creatinina: parseFloat(creatinina),
@@ -43,22 +41,22 @@ function PatientRegistry() {
       weight: parseFloat(weight),
       genre,
     }
-    console.log(dataPatient)
     axios.post('/patient/DataPatient', dataPatient).then(res => {
-      if(res.data === 'YES'){
-  
-      }else{
+      if (res.data === 'YES') {
+
+      } else {
         alert('usuario no encontrado')
       }
     })
   }
+
   function reload() {
-    setEnable(true)
-    setAge('')
-    setCreatinina('')
-    setGenre('')
-    setHeight('')
-    setWeight('')
+    setEnable(true);
+    setAge('');
+    setCreatinina('');
+    setGenre('');
+    setHeight('');
+    setWeight('');
   }
 
   return (
@@ -72,107 +70,107 @@ function PatientRegistry() {
 
           <div className='w-full' style={{ background: 'linear-gradient(to right, #00897b, #00dfc3, #00897b)' }}>
             <div className='flex justify-center items-center'>
-              <Card className="w-1/2 h-1/2 shadow-2xl shadow-[] z-10">
+              <Card className='w-1/2 h-1/2 shadow-2xl shadow-[] z-10'>
                 <CardHeader
-                  variant="gradient"
-                  className="grid h-20 place-items-center shadow-md shadow-[#00dfc3]"
+                  variant='gradient'
+                  className='grid h-20 place-items-center shadow-md shadow-[#00dfc3]'
                   color='teal'
 
                 >
-                  <Typography variant="h3" color="white">
+                  <Typography variant='h3' color='white'>
                     Cálculo de antibióticos
                   </Typography>
                 </CardHeader>
                 <div className='flex'>
                   <div className='w-1/2'>
-                    <CardBody className="flex flex-col gap-4">
+                    <CardBody className='flex flex-col gap-4'>
                       <div className='text-center'>
-                        <Typography variant="h6" color="teal">
+                        <Typography variant='h6' color='teal'>
                           Datos del paciente
                         </Typography>
                       </div>
-                      <Input 
-                        type="number" 
-                        label="Altura (cm)" 
-                        variant="standard" 
-                        size="lg" 
-                        color='teal' 
+                      <Input
+                        type='number'
+                        label='Altura (cm)'
+                        variant='standard'
+                        size='lg'
+                        color='teal'
                         value={height}
-                        onChange={(e) => {(setHeight(e.target.value))}}
-                        />
-                      <Input 
-                        type="number"
-                        label="Peso (kg)"
-                        variant="standard"
-                        size="lg" 
-                        color='teal' 
+                        onChange={(e) => { (setHeight(e.target.value)) }}
+                      />
+                      <Input
+                        type='number'
+                        label='Peso (kg)'
+                        variant='standard'
+                        size='lg'
+                        color='teal'
                         value={weight}
-                        onChange={(e) => {(setWeight(e.target.value))}}
-                        />
-                      <Input type="number" 
-                        label="Edad" 
-                        variant="standard"
-                        size="lg" 
-                        color='teal' 
+                        onChange={(e) => { (setWeight(e.target.value)) }}
+                      />
+                      <Input type='number'
+                        label='Edad'
+                        variant='standard'
+                        size='lg'
+                        color='teal'
                         value={age}
-                        onChange={(e) => {(setAge(e.target.value))}}
-                        />
-                      <Input 
-                        type="number" 
-                        label="Creatinina (mg/dL)" 
-                        variant="standard" 
-                        size="lg" 
-                        color='teal' 
+                        onChange={(e) => { (setAge(e.target.value)) }}
+                      />
+                      <Input
+                        type='number'
+                        label='Creatinina (mg/dL)'
+                        variant='standard'
+                        size='lg'
+                        color='teal'
                         value={creatinina}
-                        onChange={(e) => {(setCreatinina(e.target.value))}}
-                        />
-                      <div class=" pt-5">
-                        <label for="man" class="pr-2">
+                        onChange={(e) => { (setCreatinina(e.target.value)) }}
+                      />
+                      <div class=' pt-5'>
+                        <label for='man' class='pr-2'>
                           <input
-                            type="radio"
-                            id="man"
-                            checked={genre === "men" ? true : false}
-                            onChange={() => {setGenre("men")}}
+                            type='radio'
+                            id='man'
+                            checked={genre === 'men' ? true : false}
+                            onChange={() => { setGenre('men') }}
                           />
                           <span> Hombre </span>
                         </label>
 
-                        <label for="woman">
+                        <label for='woman'>
                           <input
-                            type="radio"
-                            id="woman"
-                            checked={genre === "woman" ? true : false}
-                            onChange={() => {setGenre("woman")}}
+                            type='radio'
+                            id='woman'
+                            checked={genre === 'woman' ? true : false}
+                            onChange={() => { setGenre('woman') }}
                           />
                           <span> Mujer </span>
                         </label>
                       </div>
 
-                      <div className="-ml-2.5">
+                      <div className='-ml-2.5'>
                       </div>
                     </CardBody>
                   </div>
                   <div className='w-1/2'>
-                    <CardBody className="flex flex-col gap-4">
+                    <CardBody className='flex flex-col gap-4'>
                       <div className='text-center'>
-                        <Typography variant="h6" color="teal">
+                        <Typography variant='h6' color='teal'>
                           Seleccionar antibiótico
                         </Typography>
                       </div>
                       <div className='pt-2'>
-                        <SingleSelect 
+                        <SingleSelect
                           enable={enable}
                         />
                       </div>
                     </CardBody>
                   </div>
                 </div>
-                <CardFooter className="pt-0">
-                <div className='mb-2'>
-                    {error && <Error message={message}/>}
-                </div>
+                <CardFooter className='pt-0'>
+                  <div className='mb-2'>
+                    {error && <Error message={message} />}
+                  </div>
                   <div>
-                    <Button variant="gradient" fullWidth color='teal' className='z-0'
+                    <Button variant='gradient' fullWidth color='teal' className='z-0'
                       style={{ background: 'linear-gradient(to right, #4db6ac, #26a69a, #00897b , #26a69a , #4db6ac)' }}
                       onClick={sendBackend}
                     >
@@ -181,7 +179,7 @@ function PatientRegistry() {
                   </div>
 
                   <div className='pt-3'>
-                    <Button variant="gradient" fullWidth color='teal'
+                    <Button variant='gradient' fullWidth color='teal'
                       style={{ background: 'linear-gradient(to right, #4db6ac, #26a69a, #00897b , #26a69a , #4db6ac)' }}
                       onClick={reload}
                     >
@@ -196,7 +194,6 @@ function PatientRegistry() {
           </div>
         </div>
       </div>
-
 
     </div>
   )

@@ -1,6 +1,7 @@
 import React from 'react'
 import ParticlesBackground from './particles';
 import Sidebar from './sidebar';
+import ZaiosLogoNoBg from '../images/ZaiosLogoNoBg.png'
 
 function Home() {
   return (
@@ -11,7 +12,8 @@ function Home() {
 
       <div className='pl-64'>
         <div style={{ background: 'linear-gradient(to right, #261089, #6674ff, #9190ff, #6674ff, #261089)' }} >
-          <div style={{ backgroundImage: 'url(https://i.ibb.co/kgvsYPX/Zaios-Logo-nobg.png)' }} className='bg-no-repeat bg-center' >
+          <div className='bg-no-repeat bg-center flex justify-center items-center' >
+            <img src={ZaiosLogoNoBg} className='z-10' />
             <ParticlesBackground />
           </div>
         </div>

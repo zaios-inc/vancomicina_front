@@ -1,37 +1,28 @@
-import { useCallback } from "react";
-import Particles from "react-tsparticles";
-import { loadFull } from "tsparticles";
-import "../App.css";
+import { useCallback } from 'react';
+import Particles from 'react-tsparticles';
+import { loadFull } from 'tsparticles';
+import '../App.css';
 
 function ParticlesBackground () {
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
-    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
     await loadFull(engine);
-  }, []);
-
-  const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
   }, []);
 
   return (
     <Particles
-      id="tsparticles"
+      id='tsparticles'
       init={particlesInit}
-      loaded={particlesLoaded}
       options={{
         fpsLimit: 120,
         interactivity: {
           events: {
             onClick: {
               enable: false,
-              mode: "",
+              mode: '',
             },
             onHover: {
               enable: false,
-              mode: "repulse",
+              mode: 'repulse',
             },
             resize: true,
           },
@@ -47,10 +38,10 @@ function ParticlesBackground () {
         },
         particles: {
           color: {
-            value: "#ffffff",
+            value: '#ffffff',
           },
           links: {
-            color: "#ffffff",
+            color: '#ffffff',
             distance: 150,
             enable: true,
             width: 1,
@@ -59,10 +50,10 @@ function ParticlesBackground () {
             enable: true,
           },
           move: {
-            directions: "none",
+            directions: 'none',
             enable: true,
             outModes: {
-              default: "bounce",
+              default: 'bounce',
             },
             random: false,
             speed: 1,
@@ -79,7 +70,7 @@ function ParticlesBackground () {
             value: 0.5,
           },
           shape: {
-            type: "circle",
+            type: 'circle',
           },
           size: {
             value: { min: 1, max: 5 },

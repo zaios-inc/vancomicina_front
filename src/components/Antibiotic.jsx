@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios'
 import Sidebar from './sidebar'
 import Error from './error'
@@ -20,13 +20,13 @@ function Antibiotic() {
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
 
-  /*useEffect(() => {
-    document.querySelectorAll('input[type='number']').forEach(input => {
+  useEffect(() => {
+    document.querySelectorAll('input[type="number"]').forEach(input => {
       input.oninput = () => {
         if(input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength);
       }
     })
-  }, []);*/
+  }, []);
 
   function CreateAntibiotic() {
 
@@ -89,6 +89,7 @@ function Antibiotic() {
               <div className='mx-auto'>
                 <Input className='text-center' type='text' variant='standard' size='lg' color='purple'
                   placeholder='Nombre antibiótico'
+                  maxLength="50"
                   value={antibiotic}
                   onChange={(e) => { setAntibiotic(e.target.value) }}
                 />
@@ -124,6 +125,7 @@ function Antibiotic() {
                   <div className='flex justify-around'>
                     <input
                       type='number'
+                      maxLength="3"
                       class='text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none'
                       placeholder='0'
                       value={min1}
@@ -133,6 +135,7 @@ function Antibiotic() {
                       type='number'
                       class='text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none'
                       placeholder='0'
+                      maxLength="3"
                       value={max1}
                       onChange={(e) => { setMax1(e.target.value) }}
                     />
@@ -142,6 +145,7 @@ function Antibiotic() {
                   <div className='flex justify-center'>
                     <input
                       type='text'
+                      maxLength="50"
                       class='text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none'
                       placeholder='Dosis (g) - Tiempo (hrs)'
                       value={recomended1}
@@ -156,6 +160,7 @@ function Antibiotic() {
                   <div className='flex justify-around'>
                     <input
                       type='number'
+                      maxLength="3"
                       class='text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none'
                       placeholder='0'
                       value={min2}
@@ -163,6 +168,7 @@ function Antibiotic() {
                     />
                     <input
                       type='number'
+                      maxLength="3"
                       class='text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none'
                       placeholder='0'
                       value={max2}
@@ -174,6 +180,7 @@ function Antibiotic() {
                   <div className='flex justify-center'>
                     <input
                       type='text'
+                      maxLength="50"
                       class='text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none'
                       placeholder='Dosis (g) - Tiempo (hrs)'
                       value={recomended2}
@@ -188,6 +195,7 @@ function Antibiotic() {
                   <div className='flex justify-around'>
                     <input
                       type='number'
+                      maxLength="3"
                       class='text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none'
                       placeholder='0'
                       value={min3}
@@ -196,6 +204,7 @@ function Antibiotic() {
                     />
                     <input
                       type='number'
+                      maxLength="3"
                       class='text-center form-control block w-20 px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none'
                       placeholder='0'
                       value={max3}
@@ -207,6 +216,7 @@ function Antibiotic() {
                   <div className='flex justify-center'>
                     <input
                       type='text'
+                      maxLength="50"
                       class='text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none'
                       placeholder='Dosis (g) - Tiempo (hrs)'
                       value={recomended3}

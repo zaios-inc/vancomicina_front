@@ -1,5 +1,5 @@
 import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter } from '@material-tailwind/react';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import ParticlesBackground from './particles';
 import SingleSelect from './selectAntibiot';
 import Error from './error';
@@ -17,13 +17,13 @@ function PatientRegistry() {
   const [message, setMessage] = useState('');
   const [enable, setEnable] = useState(true);
 
-  /*useEffect(() => {
-    document.querySelectorAll('input[type='number']').forEach(input => {
+  useEffect(() => {
+    document.querySelectorAll('input[type="number"]').forEach(input => {
       input.oninput = () => {
         if(input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength);
       }
     })
-  }, []);*/
+  }, []);
 
   function sendBackend() {
 
@@ -41,13 +41,7 @@ function PatientRegistry() {
       weight: parseFloat(weight),
       genre,
     }
-    axios.post('/patient/DataPatient', dataPatient).then(res => {
-      if (res.data === 'YES') {
-
-      } else {
-        alert('usuario no encontrado')
-      }
-    })
+    axios.post('/patient/DataPatient', dataPatient).then(res => {})
   }
 
   function reload() {
@@ -91,6 +85,7 @@ function PatientRegistry() {
                       </div>
                       <Input
                         type='number'
+                        maxLength="3"
                         label='Altura (cm)'
                         variant='standard'
                         size='lg'
@@ -100,6 +95,7 @@ function PatientRegistry() {
                       />
                       <Input
                         type='number'
+                        maxLength="3"
                         label='Peso (kg)'
                         variant='standard'
                         size='lg'
@@ -109,6 +105,7 @@ function PatientRegistry() {
                       />
                       <Input type='number'
                         label='Edad'
+                        maxLength="3"
                         variant='standard'
                         size='lg'
                         color='teal'
@@ -117,6 +114,7 @@ function PatientRegistry() {
                       />
                       <Input
                         type='number'
+                        maxLength="3"
                         label='Creatinina (mg/dL)'
                         variant='standard'
                         size='lg'

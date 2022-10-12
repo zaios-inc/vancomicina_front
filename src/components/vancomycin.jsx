@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from './sidebar';
 import ParticlesBackground from './particles';
 import ChartLine from './chartline';
+import RegisterVancomycin from './registerVancomycin';
 
 function Vancomycin() {
   return (
@@ -12,6 +13,9 @@ function Vancomycin() {
 
       <div className='pl-64'>
         <div style={{ background: 'linear-gradient(to right, #00acc1, #4dd0e1, #80deea, #4dd0e1, #00acc1)' }} >
+          <div className='mx-auto'>
+            <RegisterVancomycin />
+          </div>
           <ChartLine />
           <ParticlesBackground />
         </div>

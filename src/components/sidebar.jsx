@@ -68,11 +68,27 @@ function Sidebar() {
                 </div>
               </NavLink>
             </li>
+
+            <li className='rounded-lg mb-4'>
+              <NavLink
+                to='/vancomycin'
+                exact
+                className='flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg'
+              >
+                <div className='flex items-center'>
+                  <div className='text-2xl'>
+                    <img src='https://cdn-icons-png.flaticon.com/512/4148/4148500.png' className='w-8' 
+                      alt='Icono inyección'/>
+                  </div>
+                  <p className='text-lg pl-3 text-black text-center select-none'>Vancomicina</p>
+                </div>
+              </NavLink>
+            </li>
           </ul>
 
           <ul className='flex-col min-w-full flex list-none absolute bottom-0'>
             <NavLink
-              to='/cuenta'
+              to='/home'
               exact
               className='flex items-center gap-4 text-sm text-gray-700 font-bold px-4 py-3 rounded-lg'
             >

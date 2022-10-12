@@ -19,7 +19,8 @@
     "sweetalert2": "^11.4.37",
     "tsparticles": "^2.3.4",
     "uniqid": "^5.4.0",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "chart.js": "2.9.4"
   },
   "scripts": {
     "start": "react-scripts start",

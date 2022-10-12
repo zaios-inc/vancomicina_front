@@ -34,22 +34,11 @@ function SignUp() {
       name: name,
       password: password
     }
-    Swal.fire({
-        icon: 'info',
-        title: 'Creando tu usuario...',
-        showConfirmButton: false,
-        didOpen: () => {
-            Swal.showLoading();
-            const b = Swal.getHtmlContainer().querySelector('b');
-            setInterval(() => {
-            b.textContent = Swal.getTimerLeft();
-          }, 100)
-      }
-    })
+
     axios.post('/user/register', newUser)
     .then(res => {
       Swal.fire({
-          title:'Tu Usuario se creo Correctamente!',
+          title: res.data,
           icon: 'success'
       })
     })

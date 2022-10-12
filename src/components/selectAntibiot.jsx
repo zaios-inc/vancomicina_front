@@ -1,6 +1,7 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Select from 'react-select';
 import axios from 'axios';
+const Swal = require('sweetalert2');
 
 function SingleSelect({ enable }) {
 
@@ -18,15 +19,13 @@ function SingleSelect({ enable }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
-
-
-
   function handleChange(selectedOption) {
-    console.log(selectedOption.value)
     setOption(selectedOption)
     axios.post('/patient/getRecomend', { name: selectedOption.value }).then(res => {
-      console.log(res.data)
-      alert(res.data)
+      Swal.fire({
+          title: res.data,
+          icon: 'info'
+      })
     })
   }
 

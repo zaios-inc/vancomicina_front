@@ -4,6 +4,7 @@ import Sidebar from './sidebar'
 import Error from './error'
 import ParticlesBackground from './particles'
 import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter } from '@material-tailwind/react';
+const Swal = require('sweetalert2');
 
 function Antibiotic() {
 
@@ -50,9 +51,11 @@ function Antibiotic() {
     }
     axios.post('/antibiotic/create', newAntibiotic)
       .then(res => {
-        alert(res.data);
+        Swal.fire({
+          title: 'Antibiotico agregado correctamente',
+          icon: 'success'
       })
-      .then(err => { console.log(err) })
+    }).then( err => {console.log(err)})
 
     setAntibiotic('');
     setMax1('');

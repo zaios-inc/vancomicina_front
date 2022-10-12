@@ -12,11 +12,14 @@ function Vancomycin() {
       </div>
 
       <div className='pl-64'>
-        <div style={{ background: 'linear-gradient(to right, #00acc1, #4dd0e1, #80deea, #4dd0e1, #00acc1)' }} >
-          <div className='mx-auto'>
+        <div style={{ background: 'linear-gradient(to right, #0097a7, #26c6da, #80deea, #26c6da, #0097a7)' }} >
+          <div className='flex justify-center'>
             <RegisterVancomycin />
           </div>
-          <ChartLine />
+
+          <div className=''>
+            <ChartLine />
+          </div>
           <ParticlesBackground />
         </div>
       </div>

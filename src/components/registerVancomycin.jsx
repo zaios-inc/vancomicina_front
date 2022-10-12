@@ -72,19 +72,17 @@ function RegisterVancomycin() {
 
           <div className='w-full'>
             <div className='flex justify-center items-center'>
-              <Card className='w-1/2 h-1/2 shadow-2xl shadow-[] z-10'>
+              <Card className='w-auto h-1/2 shadow-2xl shadow-[#1a237e] z-10'>
                 <CardHeader
                   variant='gradient'
-                  className='grid h-20 place-items-center shadow-md shadow-[#00dfc3]'
-                  color='teal'
-
+                  className='grid h-20 place-items-center shadow-lg shadow-[#0097a7] bg-[#0097a7]'
                 >
                   <Typography variant='h3' color='white'>
-                    Cálculo de antibióticos
+                    Calcular vancomicina
                   </Typography>
                 </CardHeader>
                 <div className='text-center pt-6'>
-                  <Typography variant='h6' color='teal'>
+                  <Typography variant='h6' className="text-[#0097a7]">
                     Datos del paciente
                   </Typography>
                 </div>
@@ -97,7 +95,7 @@ function RegisterVancomycin() {
                         label='Altura (cm)'
                         variant='standard'
                         size='lg'
-                        color='teal'
+                        color='cyan'
                         value={height}
                         onChange={(e) => { (setHeight(e.target.value)) }}
                       />
@@ -107,7 +105,7 @@ function RegisterVancomycin() {
                         label='Peso (kg)'
                         variant='standard'
                         size='lg'
-                        color='teal'
+                        color='cyan'
                         value={weight}
                         onChange={(e) => { (setWeight(e.target.value)) }}
                       />
@@ -116,7 +114,7 @@ function RegisterVancomycin() {
                         maxLength="3"
                         variant='standard'
                         size='lg'
-                        color='teal'
+                        color='cyan'
                         value={age}
                         onChange={(e) => { (setAge(e.target.value)) }}
                       />
@@ -128,7 +126,7 @@ function RegisterVancomycin() {
                         label='Creatinina (mg/dL)'
                         variant='standard'
                         size='lg'
-                        color='teal'
+                        color='cyan'
                         value={creatinina}
                         onChange={(e) => { (setCreatinina(e.target.value)) }}
                       />
@@ -143,7 +141,7 @@ function RegisterVancomycin() {
                         label='Dosis (mg)'
                         variant='standard'
                         size='lg'
-                        color='teal'
+                        color='cyan'
                         value={dose}
                         onChange={(e) => { (setDose(e.target.value)) }}
                       />
@@ -153,7 +151,7 @@ function RegisterVancomycin() {
                         label='Intervalo'
                         variant='standard'
                         size='lg'
-                        color='teal'
+                        color='cyan'
                         value={interval}
                         onChange={(e) => { (setInterval(e.target.value)) }}
                       />
@@ -162,7 +160,7 @@ function RegisterVancomycin() {
                         maxLength="3"
                         variant='standard'
                         size='lg'
-                        color='teal'
+                        color='cyan'
                         value={infusion}
                         onChange={(e) => { (setInfusion(e.target.value)) }}
                       />
@@ -173,7 +171,7 @@ function RegisterVancomycin() {
                         label='Dosis de carga'
                         variant='standard'
                         size='lg'
-                        color='teal'
+                        color='cyan'
                         value={loadingDose}
                         onChange={(e) => { (setLoadingDose(e.target.value)) }}
                       />
@@ -209,8 +207,8 @@ function RegisterVancomycin() {
                     {error && <Error message={message} />}
                   </div>
                   <div>
-                    <Button variant='gradient' fullWidth color='teal' className='z-0'
-                      style={{ background: 'linear-gradient(to right, #4db6ac, #26a69a, #00897b , #26a69a , #4db6ac)' }}
+                    <Button variant='gradient' fullWidth color='blue' className='z-0'
+                      style={{ background: 'linear-gradient(to right, #4dd0e1, #00bcd4, #0097a7, #00bcd4 , #4dd0e1)' }}
                       onClick={sendBackend}
                     >
                       Calcular
@@ -218,8 +216,8 @@ function RegisterVancomycin() {
                   </div>
 
                   <div className='pt-3'>
-                    <Button variant='gradient' fullWidth color='teal'
-                      style={{ background: 'linear-gradient(to right, #4db6ac, #26a69a, #00897b , #26a69a , #4db6ac)' }}
+                    <Button variant='gradient' fullWidth color='blue'
+                      style={{ background: 'linear-gradient(to right, #4dd0e1, #26c6da, #0097a7 , #26c6da , #4dd0e1)' }}
                       onClick={reload}
                     >
                       Nuevo paciente

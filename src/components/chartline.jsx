@@ -18,14 +18,14 @@ export default function ChartLine() {
         ],
         datasets: [
           {
-            label: "Nivel valle",
+            label: "Concentraciones",
             backgroundColor: '#66bb6a',
             borderColor: '#66bb6a',
             data: [65, 78, 66, 44, 56, 67, 75],
             fill: false,
           },
           {
-            label: "Riñón perrateado",
+            label: "Concentraciones (dosis de carga)",
             fill: false,
             backgroundColor: '#ef5350',
             borderColor: '#ef5350',
@@ -111,14 +111,11 @@ export default function ChartLine() {
   return (
     <div className=''>
       <div className='flex justify-center items-center pt-28'>
-        <Card className='w-1/2 h-1/2 shadow-2xl shadow-[#0d47a1] z-10'>
+        <Card className='w-1/2 h-1/2 shadow-2xl shadow-[#1a237e] z-10'>
           <CardHeader
             variant='gradient'
-            className='grid h-20 place-items-center shadow-md shadow-[#0d47a1]'
-            color="blue">
-            <h6 className="uppercase text-gray-200 text-xs font-medium">
-              Los chompis
-            </h6>
+            className='grid h-20 place-items-center shadow-lg shadow-[#0097a7] bg-[#0097a7]'
+            >
             <h2 className="text-white text-2xl">Niveles de vancomicina</h2>
           </CardHeader>
           <CardBody>

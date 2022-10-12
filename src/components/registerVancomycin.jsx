@@ -1,7 +1,6 @@
 import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter } from '@material-tailwind/react';
 import { useState, useEffect } from 'react'
 import ParticlesBackground from './particles';
-import SingleSelect from './selectAntibiot';
 import Error from './error';
 import Sidebar from './sidebar';
 import axios from 'axios';
@@ -12,10 +11,13 @@ function RegisterVancomycin() {
   const [creatinina, setCreatinina] = useState('');
   const [age, setAge] = useState('');
   const [weight, setWeight] = useState('');
-  const [genre, setGenre] = useState(1);
+  const [dose, setDose] = useState('');
+  const [interval, setInterval] = useState('');
+  const [infusion, setInfusion] = useState('');
+  const [loadingDose, setLoadingDose] = useState('');
+  const [genre, setGenre] = useState('');
   const [error, setError] = useState(false);
   const [message, setMessage] = useState('');
-  const [enable, setEnable] = useState(true);
 
   useEffect(() => {
     document.querySelectorAll('input[type="number"]').forEach(input => {
@@ -27,30 +29,36 @@ function RegisterVancomycin() {
 
   function sendBackend() {
 
-    if ([height, creatinina, age, weight, genre].includes('')) {
+    if ([height, creatinina, age, weight, dose, interval, infusion, loadingDose, genre].includes('')) {
       setMessage('Todos los campos son obligatorios');
       setError(true);
       return;
     }
     setError(false);
-    setEnable(false);
-    const dataPatient = {
+    const dataVancomicina = {
       height: parseFloat(height),
       creatinina: parseFloat(creatinina),
       age: parseFloat(age),
       weight: parseFloat(weight),
-      genre,
+      dose: parseFloat(dose),
+      interval: parseFloat(interval),
+      infusion: parseFloat(infusion),
+      loadingDose: parseFloat(loadingDose),
+      genre
     }
-    axios.post('/patient/DataPatient', dataPatient).then(res => { })
+    axios.post('/vancomicina/DataVancomicina', dataVancomicina).then(res => { })
   }
 
   function reload() {
-    setEnable(true);
     setAge('');
     setCreatinina('');
     setGenre('');
     setHeight('');
     setWeight('');
+    setDose('');
+    setInterval('');
+    setInfusion('');
+    setLoadingDose('');
   }
 
   return (
@@ -136,8 +144,8 @@ function RegisterVancomycin() {
                         variant='standard'
                         size='lg'
                         color='teal'
-                        value={height}
-                        onChange={(e) => { (setHeight(e.target.value)) }}
+                        value={dose}
+                        onChange={(e) => { (setDose(e.target.value)) }}
                       />
                       <Input
                         type='number'
@@ -146,8 +154,8 @@ function RegisterVancomycin() {
                         variant='standard'
                         size='lg'
                         color='teal'
-                        value={weight}
-                        onChange={(e) => { (setWeight(e.target.value)) }}
+                        value={interval}
+                        onChange={(e) => { (setInterval(e.target.value)) }}
                       />
                       <Input type='number'
                         label='Tiempo de infusión'
@@ -155,8 +163,8 @@ function RegisterVancomycin() {
                         variant='standard'
                         size='lg'
                         color='teal'
-                        value={age}
-                        onChange={(e) => { (setAge(e.target.value)) }}
+                        value={infusion}
+                        onChange={(e) => { (setInfusion(e.target.value)) }}
                       />
 
                       <Input
@@ -166,8 +174,8 @@ function RegisterVancomycin() {
                         variant='standard'
                         size='lg'
                         color='teal'
-                        value={creatinina}
-                        onChange={(e) => { (setCreatinina(e.target.value)) }}
+                        value={loadingDose}
+                        onChange={(e) => { (setLoadingDose(e.target.value)) }}
                       />
 
                     </CardBody>

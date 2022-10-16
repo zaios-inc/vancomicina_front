@@ -56,7 +56,6 @@ function RegisterVancomycin() {
     setHeight('');
     setWeight('');
     setDose('');
-    setInterval('');
     setInfusion('');
     setLoadingDose('');
   }

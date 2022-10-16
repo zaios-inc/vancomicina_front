@@ -13,7 +13,7 @@ function App() {
 	const [login, setLogin] = useState(true)
 
 	return (
-		<Router>
+		<Router basename={process.env.PUBLIC_URL}>
 			<Routes>
 				<Route exact path='/register' element={<SignUp />} />
 				<Route exact path='/' element={<Login setLogin={setLogin} />} />

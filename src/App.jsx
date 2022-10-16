@@ -15,9 +15,9 @@ function App() {
 	return (
 		<Router basename={process.env.PUBLIC_URL}>
 			<Routes>
-				<Route exact path='/register' element={<SignUp />} />
+				<Route exact path='/register' basename={process.env.PUBLIC_URL} element={<SignUp />} />
 				<Route exact path='/' element={<Login setLogin={setLogin} />} />
-				<Route exact path='/home' element={<Home />} />
+				<Route exact path='/home' basename={process.env.PUBLIC_URL} element={<Home />} />
 				{login && <Route exact path='/patient' element={<PatientRegistry />} />}
 				{login && <Route exact path='/antibiotic' element={<Antibiotic />} />}
 				{login && <Route exact path='/vancomycin' element={<Vancomycin />} />}

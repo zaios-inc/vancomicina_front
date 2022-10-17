@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import Sidebar from './sidebar'
-import Error from './error'
-import ParticlesBackground from './particles'
+import Sidebar from '../sidebar'
+import Error from '../error'
+import ParticlesBackground from '../particles'
 import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter } from '@material-tailwind/react';
 const Swal = require('sweetalert2');
 
@@ -18,6 +18,7 @@ function Antibiotic() {
   const [recomended2, setRecomended2] = useState('');
   const [recomended3, setRecomended3] = useState('');
   const [antibiotic, setAntibiotic] = useState('');
+  const [typeAntibiotic, setTypeAntibiotic] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState(false);
 
@@ -31,7 +32,7 @@ function Antibiotic() {
 
   function CreateAntibiotic() {
 
-    if ([min1, min2, max1, max2, recomended1, recomended2, antibiotic].includes('')) {
+    if ([min1, min2, max1, max2, recomended1, recomended2, antibiotic, typeAntibiotic].includes('')) {
       setMessage('Registre como minimo dos recomendaciones');
       setError(true);
       return;
@@ -39,6 +40,7 @@ function Antibiotic() {
 
     const newAntibiotic = {
       name: antibiotic,
+      typeAntibiotic,
       min1: parseInt(min1),
       max1: parseInt(max1),
       recomended1,
@@ -58,6 +60,7 @@ function Antibiotic() {
     }).then( err => {console.log(err)})
 
     setAntibiotic('');
+    setTypeAntibiotic('');
     setMax1('');
     setMax2('');
     setMax3('');
@@ -95,6 +98,14 @@ function Antibiotic() {
                   maxLength="50"
                   value={antibiotic}
                   onChange={(e) => { setAntibiotic(e.target.value) }}
+                />
+              </div>
+              <div className='mx-auto'>
+                <Input className='text-center' type='text' variant='standard' size='lg' color='purple'
+                  placeholder='Clase del antibiótico'
+                  maxLength="50"
+                  value={typeAntibiotic}
+                  onChange={(e) => { setTypeAntibiotic(e.target.value) }}
                 />
               </div>
 

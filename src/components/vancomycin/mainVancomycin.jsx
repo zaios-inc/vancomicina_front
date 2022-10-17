@@ -2,8 +2,8 @@ import React from 'react'
 import Sidebar from '../sidebar';
 import ParticlesBackground from '../particles';
 import RegisterVancomycin from './registerVancomycin';
-import Dashboard from '../dashboard';
 import { useState } from 'react';
+import Dashboard from './dashboard';
 
 function Vancomycin() {
 

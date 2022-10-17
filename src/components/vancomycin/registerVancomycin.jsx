@@ -11,7 +11,7 @@ function RegisterVancomycin({ setEnable }) {
   const [age, setAge] = useState('');
   const [weight, setWeight] = useState('');
   const [dose, setDose] = useState('');
-  const [interval, setInterval] = useState('');
+  const [interval, setIntervalValueValue] = useState('');
   const [infusion, setInfusion] = useState('');
   const [loadingDose, setLoadingDose] = useState('');
   const [genre, setGenre] = useState('');
@@ -56,7 +56,7 @@ function RegisterVancomycin({ setEnable }) {
     setHeight('');
     setWeight('');
     setDose('');
-    setInterval('');
+    setIntervalValueValue('');
     setInfusion('');
     setLoadingDose('');
     setEnable(false);
@@ -123,7 +123,7 @@ function RegisterVancomycin({ setEnable }) {
                       <div className=''>
                       <Input
                         type='number'
-                        maxLength="3"
+                        maxLength="4"
                         label='Creatinina (mg/dL)'
                         variant='standard'
                         size='lg'
@@ -138,7 +138,7 @@ function RegisterVancomycin({ setEnable }) {
                     <CardBody className='flex flex-col gap-4'>
                       <Input
                         type='number'
-                        maxLength="3"
+                        maxLength="6"
                         label='Dosis (mg)'
                         variant='standard'
                         size='lg'
@@ -148,17 +148,17 @@ function RegisterVancomycin({ setEnable }) {
                       />
                       <Input
                         type='number'
-                        maxLength="3"
+                        maxLength="6"
                         label='Intervalo'
                         variant='standard'
                         size='lg'
                         color='cyan'
                         value={interval}
-                        onChange={(e) => { (setInterval(e.target.value)) }}
+                        onChange={(e) => { (setIntervalValueValue(e.target.value)) }}
                       />
                       <Input type='number'
                         label='Tiempo de infusión'
-                        maxLength="3"
+                        maxLength="6"
                         variant='standard'
                         size='lg'
                         color='cyan'
@@ -168,7 +168,7 @@ function RegisterVancomycin({ setEnable }) {
 
                       <Input
                         type='number'
-                        maxLength="3"
+                        maxLength="6"
                         label='Dosis de carga'
                         variant='standard'
                         size='lg'

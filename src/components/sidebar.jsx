@@ -39,7 +39,7 @@ function Sidebar() {
 
             <li className='rounded-lg mb-4'>
               <NavLink
-                to='/antibiotic'
+                to='/listAntibotics'
                 exact
                 className='flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg'
               >

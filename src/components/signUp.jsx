@@ -127,7 +127,7 @@ function SignUp() {
           </div>
               <div class='text-grey-dark mt-8'>
                 ¿Ya tienes una cuenta?
-                  <a href='/' class='no-underline border-b border-[#533eab] text-[#533eab] ml-1'>
+                  <a href='/vancomicina_front' class='no-underline border-b border-[#533eab] text-[#533eab] ml-1'>
                     Iniciar sesión
                   </a>.
         </div>

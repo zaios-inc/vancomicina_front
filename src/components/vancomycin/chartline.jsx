@@ -2,34 +2,42 @@ import { useEffect } from 'react';
 import Chart from 'chart.js';
 import { Card, CardBody, CardHeader } from '@material-tailwind/react';
 
-function ChartLine() {
+function ChartLine({ listDoseLoading, listDose }) {
+
   useEffect(() => {
+
     var config = {
       type: 'line',
       data: {
-        labels: [
-          'Enero',
-          'Febrero',
-          'Marzo',
-          'Abril',
-          'Mayo',
-          'Junio',
-          'Julio',
-        ],
+        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
         datasets: [
           {
-            label: "Concentraciones",
+            label: "Concentración",
             backgroundColor: '#66bb6a',
             borderColor: '#66bb6a',
-            data: [65, 78, 66, 44, 56, 67, 75],
+            data: listDose,
             fill: false,
           },
           {
             label: "Concentraciones (dosis de carga)",
             fill: false,
-            backgroundColor: '#ef5350',
-            borderColor: '#ef5350',
-            data: [40, 68, 86, 74, 56, 60, 87],
+            backgroundColor: '#6133FF',
+            borderColor: '#6133FF',
+            data: listDoseLoading,
+          },
+          {
+            label: "Rango Maximo",
+            fill: false,
+            backgroundColor: '#68676A',
+            borderColor: '#68676A',
+            data: [40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40],
+          },
+          {
+            label: "Rango Minimo",
+            fill: false,
+            backgroundColor: '#68676A',
+            borderColor: '#68676A',
+            data: [15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
           },
         ],
       },
@@ -106,7 +114,7 @@ function ChartLine() {
     };
     var ctx = document.getElementById('line-chart').getContext('2d');
     window.myLine = new Chart(ctx, config);
-  }, []);
+  }, [listDoseLoading, listDose]);
 
   return (
     <div className=''>
@@ -115,7 +123,7 @@ function ChartLine() {
           <CardHeader
             variant='gradient'
             className='grid h-20 place-items-center shadow-lg shadow-[#0097a7] bg-[#0097a7]'
-            >
+          >
             <h2 className="text-white text-2xl font-bold">Niveles de vancomicina</h2>
           </CardHeader>
           <CardBody>

@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import Chart from 'chart.js';
 import { Card, CardBody, CardHeader } from '@material-tailwind/react';
 
-export default function ChartLine() {
+function ChartLine() {
   useEffect(() => {
     var config = {
       type: 'line',
@@ -116,7 +116,7 @@ export default function ChartLine() {
             variant='gradient'
             className='grid h-20 place-items-center shadow-lg shadow-[#0097a7] bg-[#0097a7]'
             >
-            <h2 className="text-white text-2xl">Niveles de vancomicina</h2>
+            <h2 className="text-white text-2xl font-bold">Niveles de vancomicina</h2>
           </CardHeader>
           <CardBody>
             <div className="relative h-96">
@@ -128,3 +128,5 @@ export default function ChartLine() {
     </div>
   );
 }
+
+export default ChartLine;

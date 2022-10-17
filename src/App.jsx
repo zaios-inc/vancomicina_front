@@ -6,7 +6,7 @@ import PatientRegistry from './components/patientRegistry'
 import Antibiotic from './components/Antibiotic';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/home';
-import Vancomycin from './components/vancomycin';
+import Vancomycin from './components/vancomycin/mainVancomycin';
 
 function App() {
 
@@ -15,9 +15,9 @@ function App() {
 	return (
 		<Router basename={process.env.PUBLIC_URL}>
 			<Routes>
-				<Route exact path='/register' basename={process.env.PUBLIC_URL} element={<SignUp />} />
+				<Route exact path='/register' element={<SignUp />} />
 				<Route exact path='/' element={<Login setLogin={setLogin} />} />
-				<Route exact path='/home' basename={process.env.PUBLIC_URL} element={<Home />} />
+				{login && <Route exact path='/home' element={<Home />} />}
 				{login && <Route exact path='/patient' element={<PatientRegistry />} />}
 				{login && <Route exact path='/antibiotic' element={<Antibiotic />} />}
 				{login && <Route exact path='/vancomycin' element={<Vancomycin />} />}

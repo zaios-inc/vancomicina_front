@@ -20,7 +20,7 @@ function InfoCard({
             className='grid place-content-center w-16 h-16 py-4 px-4 shadow-xl shadow-[#0097a7]'
             color={color}
           >
-            <img src={headerIcon} />
+            <img src={headerIcon} alt="cl vancomicina"/>
             <div className='font-bold text-3xl text-white'>{headerContent}</div>
           </CardHeader>
 

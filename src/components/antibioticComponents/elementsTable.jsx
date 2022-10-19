@@ -2,18 +2,31 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Editar from '../../images/editar.png';
-import Borrar from '../../images/delete.png'
+import Borrar from '../../images/delete.png';
+const Swal = require('sweetalert2');
+
 
 function ElementsTable({ antibiotic }) {
 
   const navegar = useNavigate()
 
   function DeleteAntibiotic(idAntibiotic) {
-    axios.post('/antibiotic/deleteAntibiotic', { _id: idAntibiotic }).then(res => {
-      alert(res.data)
-      navegar(0)
-    }).catch(err => console.log(err))
-  }
+      Swal.fire({
+        title: '¿Eliminar este antibiótico?',
+        showDenyButton: true,
+        showCancelButton: true,
+        showConfirmButton: false,
+        denyButtonText: `Eliminar`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isDenied) {
+          axios.post('/antibiotic/deleteAntibiotic', { _id: idAntibiotic }).then(res => {
+          Swal.fire('Antibiotico Eliminado', '', 'success')
+          navegar(0)
+          }).catch(err => console.log(err))
+        }
+      })
+    }
 
   return (
     <tr>

@@ -1,12 +1,24 @@
 import { Typography } from "@material-tailwind/react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-function PatientData({
-  IMC,
-  clearence,
-  weightAjustado,
-  weightIdeal,
-  weightFinal,
-}) {
+function PatientData() {
+  const [clearence, setClearence] = useState("");
+  const [IMC, setIMC] = useState("");
+  const [weightIdeal, setWeightIdeal] = useState("");
+  const [weightAjustado, setWeightAjustado] = useState("");
+  const [weightFinal, setWeightFinal] = useState("");
+
+  useEffect(() => {
+    axios.get("/patient/primaryData").then((res) => {
+      setIMC(res.data.IMC);
+      setClearence(res.data.clearence);
+      setWeightAjustado(res.data.weightAjustado);
+      setWeightFinal(res.data.weightFinal);
+      setWeightIdeal(res.data.weightIdeal);
+      console.log(res.data);
+    });
+  });
   return (
     <div className="w-full text-center">
       <Typography variant="h6" color="teal">

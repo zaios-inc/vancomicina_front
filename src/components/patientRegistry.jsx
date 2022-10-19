@@ -18,11 +18,6 @@ function PatientRegistry() {
   const [message, setMessage] = useState('');
   const [enable, setEnable] = useState(true);
   const [enableData, setEnableData] = useState(false)
-  const [clearence, setClearence] = useState('')
-  const [IMC, setIMC] = useState('')
-  const [weightIdeal, setWeightIdeal] = useState('')
-  const [weightAjustado, setWeightAjustado] = useState('')
-  const [weightFinal, setWeightFinal] = useState('')
 
   useEffect(() => {
     document.querySelectorAll('input[type="number"]').forEach(input => {
@@ -30,14 +25,7 @@ function PatientRegistry() {
         if(input.value.length > input.maxLength) input.value = input.value.slice(0, input.maxLength);
       }
     })
-    axios.get("/patient/primaryData").then(res => {
-        setIMC(res.data.IMC);
-        setClearence(res.data.clearence)
-        setWeightAjustado(res.data.weightAjustado)
-        setWeightFinal(res.data.weightFinal)
-        setWeightIdeal(res.data.weightIdeal)
-        console.log(res.data)
-      })
+
   }, []);
 
   function sendBackend() {
@@ -178,13 +166,7 @@ function PatientRegistry() {
                         />
                       </div>
                       <div className='pt-8'>
-                        {enableData && <PatientData 
-                        IMC={IMC}
-                        clearence={clearence}
-                        weightAjustado={weightAjustado}
-                        weightIdeal={weightIdeal}
-                        weightFinal={weightFinal}
-                        />}
+                        {enableData && <PatientData />}
                       </div>
                     </CardBody>
                   </div>

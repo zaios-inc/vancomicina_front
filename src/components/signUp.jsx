@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Error from './error';
 import axios from 'axios';
 import ZaiosLogo from '../images/ZaiosLogo.png';
-import backendString from './backendConnection'
+import { backendString } from './backendConnection'
 const Swal = require('sweetalert2');
 
 function SignUp() {

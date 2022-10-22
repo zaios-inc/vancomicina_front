@@ -1,121 +1,91 @@
-import { useEffect } from 'react';
-import Chart from 'chart.js';
+import React from 'react';
+import {
+  Chart as ChartJS,
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+} from 'chart.js';
+import { Line } from 'react-chartjs-2';
 import { Card, CardBody, CardHeader } from '@material-tailwind/react';
+
 
 function ChartLine({ listDoseLoading, listDose }) {
 
-  useEffect(() => {
+  ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
 
-    var config = {
-      type: 'line',
-      data: {
-        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-        datasets: [
-          {
-            label: "Concentración",
-            backgroundColor: '#66bb6a',
-            borderColor: '#66bb6a',
-            data: listDose,
-            fill: false,
-          },
-          {
-            label: "Concentraciones (dosis de carga)",
-            fill: false,
-            backgroundColor: '#6133FF',
-            borderColor: '#6133FF',
-            data: listDoseLoading,
-          },
-          {
-            label: "Rango Maximo",
-            fill: false,
-            backgroundColor: '#68676A',
-            borderColor: '#68676A',
-            data: [40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40],
-          },
-          {
-            label: "Rango Minimo",
-            fill: false,
-            backgroundColor: '#68676A',
-            borderColor: '#68676A',
-            data: [15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
-          },
-        ],
+  let options = {
+    maintainAspectRatio: false,
+    responsive: true,
+    title: {
+      display: false,
+      text: 'Sales Charts',
+      fontColor: 'white',
+    },
+    legend: {
+      labels: {
+        fontColor: 'black',
       },
-      options: {
-        maintainAspectRatio: false,
-        responsive: true,
-        title: {
-          display: false,
-          text: 'Sales Charts',
-          fontColor: 'white',
-        },
-        legend: {
-          labels: {
-            fontColor: 'black',
-          },
-          align: 'end',
-          position: 'bottom',
-        },
-        tooltips: {
-          mode: 'index',
-          intersect: false,
-        },
-        hover: {
-          mode: 'nearest',
-          intersect: true,
-        },
-        scales: {
-          xAxes: [
-            {
-              ticks: {
-                fontColor: 'rgba(17,17,17,.7)',
-              },
-              display: true,
-              scaleLabel: {
-                display: false,
-                labelString: 'Month',
-                fontColor: 'white',
-              },
-              gridLines: {
-                display: false,
-                borderDash: [2],
-                borderDashOffset: [2],
-                color: 'rgba(33, 37, 41, 0.3)',
-                zeroLineColor: 'rgba(0, 0, 0, 0)',
-                zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2],
-              },
-            },
-          ],
-          yAxes: [
-            {
-              ticks: {
-                fontColor: 'rgba(17,17,17,.7)',
-              },
-              display: true,
-              scaleLabel: {
-                display: false,
-                labelString: 'Value',
-                fontColor: 'white',
-              },
-              gridLines: {
-                borderDash: [3],
-                borderDashOffset: [3],
-                drawBorder: false,
-                color: 'rgba(17, 17, 17, 0.15)',
-                zeroLineColor: 'rgba(33, 37, 41, 0)',
-                zeroLineBorderDash: [2],
-                zeroLineBorderDashOffset: [2],
-              },
-            },
-          ],
-        },
-      },
-    };
-    var ctx = document.getElementById('line-chart').getContext('2d');
-    window.myLine = new Chart(ctx, config);
-  }, [listDoseLoading, listDose]);
+      align: 'end',
+      position: 'bottom',
+    },
+    tooltips: {
+      mode: 'index',
+      intersect: false,
+    },
+    hover: {
+      mode: 'nearest',
+      intersect: true,
+    },
+  };
 
+
+  let data = {
+    labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+    datasets: [
+      {
+        label: 'Concentración',
+        data: listDose,
+        borderColor: '#66bb6a',
+        backgroundColor: '#D8F6CE',
+        fill: false,
+      },
+      {
+        label: 'Concentraciones (dosis de carga)',
+        data: listDoseLoading,
+        borderColor: '#6133FF',
+        backgroundColor: '#CED8F6',
+        fill: false,
+      },
+      {
+        label: 'Rango Maximo',
+        borderColor: '#9e9e9e',
+        backgroundColor: '#9e9e9e',
+        fill: false,
+        data: [40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40, 40],
+        pointRadius: 0
+      },
+      {
+        label: 'Rango Minimo',
+        borderColor: '#9e9e9e',
+        backgroundColor: '#9e9e9e',
+        fill: false,
+        data: [15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15],
+        pointRadius: 0
+      },
+    ],
+  };
   return (
     <div className=''>
       <div className='flex justify-center items-center pt-28'>
@@ -128,13 +98,13 @@ function ChartLine({ listDoseLoading, listDose }) {
           </CardHeader>
           <CardBody>
             <div className="relative h-96">
-              <canvas id="line-chart"></canvas>
+              <Line options={options} data={data} />
             </div>
           </CardBody>
         </Card>
       </div>
     </div>
-  );
+  )
 }
 
 export default ChartLine;

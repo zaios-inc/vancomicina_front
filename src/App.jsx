@@ -9,6 +9,7 @@ import Home from './components/home';
 import Vancomycin from './components/vancomycin/mainVancomycin';
 import Table from './components/antibioticComponents/tableAntibiots';
 import EditAntibiotic from './components/antibioticComponents/editAntibiotic';
+import Edituser from './components/edituser';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
 				{login && <Route exact path='/antibiotic' element={<Antibiotic />} />}
 				{login && <Route exact path='/vancomycin' element={<Vancomycin />} />}
 				{login && <Route exact path='/editAntibiotic/:_id' element={<EditAntibiotic />} />}
+				{login && <Route exact path='/edituser' element={<Edituser />} />}
 			</Routes>
 		</Router>
 	);

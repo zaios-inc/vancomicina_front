@@ -1,8 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { backendString } from './backendConnection'
+import axios from 'axios';
 
 function Sidebar() {
   const [showSidebar] = useState('-left-64');
+  const [user, setUser] = useState([])
+
+  useEffect(() => {
+  axios.get(`${backendString}/user/getlogin`).then(res => {
+    setUser(res.data)
+  })
+  }, [])
 
   return (
     <div
@@ -88,7 +97,7 @@ function Sidebar() {
 
           <ul className='flex-col min-w-full flex list-none absolute bottom-0'>
             <NavLink
-              to='/home'
+              to='/edituser'
               exact
               className='flex items-center gap-4 text-sm text-gray-700 font-bold px-4 py-3 rounded-lg'
             >
@@ -98,7 +107,7 @@ function Sidebar() {
                     <img src='https://cdn-icons-png.flaticon.com/512/3033/3033143.png' className='w-11'
                       alt='Icono cuenta' />
                   </div>
-                  <p className='text-xl text-center font-semibold text-black select-none'>Cuenta</p>
+                  <p className='text-xl text-center font-semibold text-black select-none'>{user.name}</p>
                 </div>
               </div>
             </NavLink>

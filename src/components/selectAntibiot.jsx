@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import Select from 'react-select';
+import { backendString } from './backendConnection'
 import axios from 'axios';
 const Swal = require('sweetalert2');
 
@@ -10,7 +11,7 @@ function SingleSelect({ enable }) {
 
   useEffect(() => {
     const fetchData =  () => {
-      axios.get('/patient/getAntibiotics').then(res => {
+      axios.get(`${backendString}/patient/getAntibiotics`).then(res => {
         setAntibiotic(res.data)
         console.log(antibiotics)
       })
@@ -21,7 +22,7 @@ function SingleSelect({ enable }) {
 
   function handleChange(selectedOption) {
     setOption(selectedOption)
-    axios.post('/patient/getRecomend', { name: selectedOption.value }).then(res => {
+    axios.post(`${backendString}/patient/getRecomend`, { name: selectedOption.value }).then(res => {
       Swal.fire({
           title: res.data,
           icon: 'info'

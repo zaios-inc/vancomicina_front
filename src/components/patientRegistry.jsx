@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import ParticlesBackground from './particles';
 import SingleSelect from './selectAntibiot';
 import PatientData from './patientData';
+import { backendString } from './backendConnection'
 import Error from './error';
 import Sidebar from './sidebar';
 import axios from 'axios';
@@ -45,7 +46,7 @@ function PatientRegistry() {
       weight: parseFloat(weight),
       genre,
     }
-    axios.post('/patient/DataPatient', dataPatient).then(res => {})
+    axios.post(`${backendString}/patient/DataPatient`, dataPatient).then(res => {})
   }
 
   function reload() {

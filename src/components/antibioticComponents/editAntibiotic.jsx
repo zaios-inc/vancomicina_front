@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router";
+import { backendString } from '../backendConnection'
 import axios from "axios";
 import Sidebar from "../sidebar";
 import Error from "../error";
@@ -35,7 +36,7 @@ function EditAntibiotic() {
 
   useEffect(() => {
     axios
-      .post("/antibiotic/getAntiobictid", { _id: params._id })
+      .post(`${backendString}/antibiotic/getAntiobictid`, { _id: params._id })
       .then((res) => {
         const dataAntibiotic = res.data[0];
         setMax1(dataAntibiotic.max1);

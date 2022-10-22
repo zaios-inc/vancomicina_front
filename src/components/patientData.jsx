@@ -1,4 +1,5 @@
 import { Typography } from "@material-tailwind/react";
+import { backendString } from './backendConnection'
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -10,7 +11,7 @@ function PatientData() {
   const [weightFinal, setWeightFinal] = useState("");
 
   useEffect(() => {
-    axios.get("/patient/primaryData").then((res) => {
+    axios.get(`${backendString}/patient/primaryData`).then((res) => {
       setIMC(res.data.IMC);
       setClearence(res.data.clearence);
       setWeightAjustado(res.data.weightAjustado);

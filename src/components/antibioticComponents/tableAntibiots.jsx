@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { Button } from "@material-tailwind/react";
+import { backendString } from '../backendConnection'
 import { BsPlusLg } from "react-icons/bs";
 import Sidebar from '../sidebar'
 import ParticlesBackground from '../particles'
@@ -13,7 +14,7 @@ export default function Table() {
 
   useEffect(() => {
 
-    axios.get('/antibiotic/listAntibiotict').then(res => {
+    axios.get(`${backendString}/antibiotic/listAntibiotict`).then(res => {
       setAllAntibiotics(res.data)
     })
   }, [])

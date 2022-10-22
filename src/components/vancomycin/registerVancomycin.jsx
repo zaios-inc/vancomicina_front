@@ -2,6 +2,7 @@ import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter } fro
 import { useState, useEffect } from 'react'
 import Error from '../error';
 import Sidebar from '../sidebar';
+import { backendString } from '../backendConnection'
 import axios from 'axios';
 
 function RegisterVancomycin({ setEnable }) {
@@ -34,7 +35,6 @@ function RegisterVancomycin({ setEnable }) {
       return;
     }
     setError(false);
-    setEnable(true);
     const dataVancomicina = {
       height: parseFloat(height),
       creatinina: parseFloat(creatinina),
@@ -46,7 +46,9 @@ function RegisterVancomycin({ setEnable }) {
       loadingDose: parseFloat(loadingDose),
       genre
     }
-    axios.post('/vancomicina/DataVancomicina', dataVancomicina).then(res => { })
+    axios.post(`${backendString}/vancomicina/DataVancomicina`, dataVancomicina).then(res => {
+      setEnable(true);
+    })
   }
 
   function reload() {
@@ -121,16 +123,16 @@ function RegisterVancomycin({ setEnable }) {
                       />
 
                       <div className=''>
-                      <Input
-                        type='number'
-                        maxLength="4"
-                        label='Creatinina (mg/dL)'
-                        variant='standard'
-                        size='lg'
-                        color='cyan'
-                        value={creatinina}
-                        onChange={(e) => { (setCreatinina(e.target.value)) }}
-                      />
+                        <Input
+                          type='number'
+                          maxLength="4"
+                          label='Creatinina (mg/dL)'
+                          variant='standard'
+                          size='lg'
+                          color='cyan'
+                          value={creatinina}
+                          onChange={(e) => { (setCreatinina(e.target.value)) }}
+                        />
                       </div>
                     </CardBody>
                   </div>
@@ -182,26 +184,26 @@ function RegisterVancomycin({ setEnable }) {
                 </div>
 
                 <div class='pt-1 mx-auto pb-6'>
-                    <label for='man' class='pr-2'>
-                      <input
-                        type='radio'
-                        id='man'
-                        checked={genre === 'men' ? true : false}
-                        onChange={() => { setGenre('men') }}
-                      />
-                      <span> Hombre </span>
-                    </label>
+                  <label for='man' class='pr-2'>
+                    <input
+                      type='radio'
+                      id='man'
+                      checked={genre === 'men' ? true : false}
+                      onChange={() => { setGenre('men') }}
+                    />
+                    <span> Hombre </span>
+                  </label>
 
-                    <label for='woman'>
-                      <input
-                        type='radio'
-                        id='woman'
-                        checked={genre === 'woman' ? true : false}
-                        onChange={() => { setGenre('woman') }}
-                      />
-                      <span> Mujer </span>
-                    </label>
-                  </div>
+                  <label for='woman'>
+                    <input
+                      type='radio'
+                      id='woman'
+                      checked={genre === 'woman' ? true : false}
+                      onChange={() => { setGenre('woman') }}
+                    />
+                    <span> Mujer </span>
+                  </label>
+                </div>
 
                 <CardFooter className='pt-0'>
                   <div className='mb-2'>

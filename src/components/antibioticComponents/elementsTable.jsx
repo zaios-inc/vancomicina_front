@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Editar from '../../images/editar.png';
+import { backendString } from '../backendConnection'
 import Borrar from '../../images/delete.png';
 const Swal = require('sweetalert2');
 
@@ -20,7 +21,7 @@ function ElementsTable({ antibiotic }) {
       }).then((result) => {
         /* Read more about isConfirmed, isDenied below */
         if (result.isDenied) {
-          axios.post('/antibiotic/deleteAntibiotic', { _id: idAntibiotic }).then(res => {
+          axios.post(`${backendString}/antibiotic/deleteAntibiotic`, { _id: idAntibiotic }).then(res => {
           Swal.fire('Antibiotico Eliminado', '', 'success')
           navegar(0)
           }).catch(err => console.log(err))

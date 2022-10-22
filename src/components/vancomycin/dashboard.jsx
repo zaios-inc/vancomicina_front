@@ -4,18 +4,19 @@ import ChartLine from './chartline';
 import InfoCard from './infoCard';
 import Table from './table';
 import Vaccine from '../../images/vaccine.png'
+import { backendString } from '../backendConnection'
 
 function Dashboard() {
 
-  const [AUC, setAUC] = useState('')
-  const [Vd, setVd] = useState('')
-  const [Ke, setKe] = useState('')
-  const [clvan, setClvan] = useState('')
+  const [AUC, setAUC] = useState(0)
+  const [Vd, setVd] = useState(0)
+  const [Ke, setKe] = useState(0)
+  const [clvan, setClvan] = useState(0)
   const [listDoses, setListDoses] = useState([])
   const [listDosesLoading, setListDoseLoading] = useState([])
 
   useEffect(() => {
-    axios.get('/vancomicina/DashboardData').then(res => {
+    axios.get(`${backendString}/vancomicina/DashboardData`).then(res => {
       const listDose = Object.values(res.data.listDose);
       const listDoseLoading = Object.values(res.data.listDoseLoading);
       const listVariables = res.data.listVariables;
@@ -26,7 +27,7 @@ function Dashboard() {
       setListDoses(listDose)
       setListDoseLoading(listDoseLoading)
     })
-  }, []);
+  }, [listDoses, listDosesLoading, clvan, Ke, Vd, AUC]);
 
 
   return (

@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react'
 import ParticlesBackground from './particles';
 import Error from './error';
 import Sidebar from './sidebar';
+import { backendString } from './backendConnection'
 import axios from 'axios';
 
 function RegisterVancomycin() {
@@ -46,7 +47,7 @@ function RegisterVancomycin() {
       loadingDose: parseFloat(loadingDose),
       genre
     }
-    axios.post('/vancomicina/DataVancomicina', dataVancomicina).then(res => { })
+    axios.post(`${backendString}/vancomicina/DataVancomicina`, dataVancomicina).then(res => { })
   }
 
   function reload() {

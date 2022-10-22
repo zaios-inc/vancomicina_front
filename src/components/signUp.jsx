@@ -35,7 +35,7 @@ function SignUp() {
       password: password
     }
 
-    axios.post('/user/register', newUser)
+    axios.post('https://vancomicina.azurewebsites.net//user/register', newUser)
     .then(res => {
       Swal.fire({
           title: res.data,

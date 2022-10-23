@@ -196,7 +196,7 @@ function Antibiotic() {
                   <div className="flex justify-center">
                     <input
                       type="text"
-                      maxLength="50"
+                      maxLength="60"
                       class="text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder="Dosis (g) - Tiempo (hrs)"
                       value={recomended1}
@@ -237,7 +237,7 @@ function Antibiotic() {
                   <div className="flex justify-center">
                     <input
                       type="text"
-                      maxLength="50"
+                      maxLength="60"
                       class="text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder="Dosis (g) - Tiempo (hrs)"
                       value={recomended2}
@@ -278,7 +278,7 @@ function Antibiotic() {
                   <div className="flex justify-center">
                     <input
                       type="text"
-                      maxLength="50"
+                      maxLength="60"
                       class="text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder="Dosis (g) - Tiempo (hrs)"
                       value={recomended3}

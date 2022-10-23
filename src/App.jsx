@@ -9,7 +9,7 @@ import Home from './components/home';
 import Vancomycin from './components/vancomycin/mainVancomycin';
 import Table from './components/antibioticComponents/tableAntibiots';
 import EditAntibiotic from './components/antibioticComponents/editAntibiotic';
-import Edituser from './components/edituser';
+import Edituser from './components/editUser';
 
 function App() {
 

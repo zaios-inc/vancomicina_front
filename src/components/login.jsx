@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import ButterfliesZaios from '../images/ButterfliesZaios.png';
 import ZaiosLogo from '../images/ZaiosLogo.png';
 import { Button, Input } from '@material-tailwind/react';
+import { backendString } from './backendConnection';
 
 function Login({ setLogin }) {
 
@@ -33,7 +34,7 @@ function Login({ setLogin }) {
       name: name,
       password: password
     }
-    axios.post('/user/login', loginUser).then(res => {
+    axios.post(`${backendString}/user/login`, loginUser).then(res => {
       if (res.data === 'YES') {
         setLogin(true)
         navigate('../home')

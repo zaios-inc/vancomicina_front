@@ -3,8 +3,9 @@ import axios from 'axios'
 import Sidebar from '../sidebar'
 import Error from '../error'
 import { useNavigate } from "react-router-dom";
-import ParticlesBackground from '../particles'
+import ParticlesBackground from '../particles';
 import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter } from '@material-tailwind/react';
+import { backendString } from '../backendConnection';
 const Swal = require('sweetalert2');
 
 function Antibiotic() {
@@ -54,7 +55,7 @@ function Antibiotic() {
       max3: parseInt(max3),
       recomended3
     }
-    axios.post('/antibiotic/create', newAntibiotic)
+    axios.post(`${backendString}/antibiotic/create`, newAntibiotic)
       .then(res => {
         Swal.fire({
           title: 'Antibiotico agregado correctamente',

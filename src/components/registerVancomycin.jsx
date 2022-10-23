@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import ParticlesBackground from './particles';
 import Error from './error';
 import Sidebar from './sidebar';
-import { backendString } from './backendConnection'
+import { backendString } from './backendConnection';
 import axios from 'axios';
 
 function RegisterVancomycin() {
@@ -122,7 +122,7 @@ function RegisterVancomycin() {
                       <div className=''>
                       <Input
                         type='number'
-                        maxLength="3"
+                        maxLength="5"
                         label='Creatinina (mg/dL)'
                         variant='standard'
                         size='lg'

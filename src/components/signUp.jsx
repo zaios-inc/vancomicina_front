@@ -3,6 +3,7 @@ import Error from './error';
 import axios from 'axios';
 import ZaiosLogo from '../images/ZaiosLogo.png';
 import { Button, Input } from '@material-tailwind/react';
+import { backendString } from './backendConnection';
 const Swal = require('sweetalert2');
 
 function SignUp() {
@@ -36,7 +37,7 @@ function SignUp() {
       password: password
     }
 
-    axios.post('/user/register', newUser)
+    axios.post(`${backendString}/user/register`, newUser)
       .then(res => {
         Swal.fire({
           title: res.data,

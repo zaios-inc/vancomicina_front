@@ -93,7 +93,7 @@ function EditAntibiotic() {
     };
 
     axios
-      .post("/antibiotic/updateAntibiotic", updatedAntibiotic)
+      .post(`${backendString}/antibiotic/updateAntibiotic`, updatedAntibiotic)
       .then((res) => {
         Swal.fire({
           title: "Actualizado correctamente",

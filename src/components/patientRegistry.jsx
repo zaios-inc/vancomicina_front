@@ -120,7 +120,7 @@ function PatientRegistry() {
                       />
                       <Input
                         type='number'
-                        maxLength="3"
+                        maxLength="5"
                         label='Creatinina (mg/dL)'
                         variant='standard'
                         size='lg'

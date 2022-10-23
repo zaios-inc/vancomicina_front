@@ -3,7 +3,6 @@ import axios from 'axios'
 import Sidebar from '../sidebar'
 import Error from '../error'
 import { useNavigate } from "react-router-dom";
-import { backendString } from '../backendConnection'
 import ParticlesBackground from '../particles'
 import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter } from '@material-tailwind/react';
 const Swal = require('sweetalert2');
@@ -55,7 +54,7 @@ function Antibiotic() {
       max3: parseInt(max3),
       recomended3
     }
-    axios.post(`${backendString}/antibiotic/create`, newAntibiotic)
+    axios.post('/antibiotic/create', newAntibiotic)
       .then(res => {
         Swal.fire({
           title: 'Antibiotico agregado correctamente',
@@ -77,19 +76,16 @@ function Antibiotic() {
   }
 
   return (
-    <div>
-      <div className="flex min-h-screen">
-        <div className="w-1/6">
+      <div className="flex">
           <Sidebar />
-        </div>
 
         <div
-          className="w-full flex items-center"
+          className="w-full flex items-center lg:pl-64"
           style={{
             background: "linear-gradient(to right, #533eab, #9190ff, #533eab)",
           }}
         >
-          <Card className="w-1/2 shadow-2xl mx-auto shadow-[#9190ff] z-10">
+          <Card className="shadow-2xl pt-4 md:pt-4 lg:w-1/2 mx-auto shadow-[#9190ff] z-10">
             <CardHeader
               variant="gradient"
               className="grid h-20 place-items-center shadow-lg shadow-[#9190ff] bg-[#533eab]"
@@ -196,7 +192,7 @@ function Antibiotic() {
                   <div className="flex justify-center">
                     <input
                       type="text"
-                      maxLength="60"
+                      maxLength="50"
                       class="text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder="Dosis (g) - Tiempo (hrs)"
                       value={recomended1}
@@ -237,7 +233,7 @@ function Antibiotic() {
                   <div className="flex justify-center">
                     <input
                       type="text"
-                      maxLength="60"
+                      maxLength="50"
                       class="text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder="Dosis (g) - Tiempo (hrs)"
                       value={recomended2}
@@ -278,7 +274,7 @@ function Antibiotic() {
                   <div className="flex justify-center">
                     <input
                       type="text"
-                      maxLength="60"
+                      maxLength="50"
                       class="text-center form-control block w-auto px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-[#982cac] rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-[#982cac] focus:outline-none"
                       placeholder="Dosis (g) - Tiempo (hrs)"
                       value={recomended3}
@@ -307,12 +303,11 @@ function Antibiotic() {
                   Registrar
                 </Button>
               </div>
-              <div className='pt-3' >
+              <div className='pt-3'>
                 <Button
                   variant="gradient"
                   fullWidth
                   color="deep-purple"
-                  className="z-0"
                   style={{
                     background:
                       "linear-gradient(to right, #261089, #533eab, #6674ff, #533eab, #261089)",
@@ -328,7 +323,6 @@ function Antibiotic() {
 
         <ParticlesBackground />
       </div>
-    </div>
   );
 }
 

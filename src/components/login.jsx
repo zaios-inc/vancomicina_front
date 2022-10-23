@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import Error from './error';
-import { backendString } from './backendConnection'
 import { useNavigate } from 'react-router-dom';
 import ButterfliesZaios from '../images/ButterfliesZaios.png';
 import ZaiosLogo from '../images/ZaiosLogo.png';
+import { Button, Input } from '@material-tailwind/react';
 
 function Login({ setLogin }) {
 
@@ -33,7 +33,7 @@ function Login({ setLogin }) {
       name: name,
       password: password
     }
-    axios.post(`${backendString}/user/login`, loginUser).then(res => {
+    axios.post('/user/login', loginUser).then(res => {
       if (res.data === 'YES') {
         setLogin(true)
         navigate('../home')
@@ -66,44 +66,54 @@ function Login({ setLogin }) {
                     <form>
                       <p class='mb-4 text-center'>¡Bienvenidos!</p>
                       <div class='mb-4'>
-                        <input
+                        <Input
                           type='text'
-                          class='form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
-                          value={name} onChange={(e) => { setName(e.target.value) }}
-                          placeholder='Usuario'
+                          maxLength=""
+                          label='Usuario'
+                          variant='standard'
+                          size='lg'
+                          color='blue'
+                          value={name}
+                          onChange={(e) => { setName(e.target.value) }}
                         />
                       </div>
 
                       <div class='mb-4'>
-                        <input
+                        <Input
                           type='password'
-                          class='form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'
-                          value={password} onChange={(e) => { setPassword(e.target.value) }}
-                          placeholder='Contraseña'
+                          maxLength=''
+                          label='Contraseña'
+                          variant='standard'
+                          size='lg'
+                          color='blue'
+                          value={password}
+                          onChange={(e) => { setPassword(e.target.value) }}
                         />
                       </div>
 
                       {error && <Error message={message} />}
-                      <div class='text-center pt-1 mb-12 pb-1'>
-                        <button
-                          class='inline-block px-6 py-2.5 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:shadow-lg focus:outline-none focus:ring-0 active:shadow-lg transition duration-150 ease-in-out w-full mb-3'
-                          type='button'
+                      <div class='text-center pt-3 mb-12 pb-1'>
+                        <Button fullWidth
+                          className='font-semibold text-xs'
+                          variant='gradient'
                           onClick={LoginUsuario}
                           style={{ background: 'linear-gradient(to right, #00dfc3, #533eab, #9190ff, #6674ff, #261089)' }}
                         >
                           Iniciar sesión
-                        </button>
+                        </Button>
                       </div>
 
                       <div class='flex items-center justify-between pb-6'>
                         <p class='mb-0 mr-2 font-semibold'>¿No tienes una cuenta?</p>
-                        <button
-                          type='button'
-                          class='flex px-6 py-2 border-2 border-[#533eab] text-[#533eab] font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out'
+                        <Button
+                          color='deep-purple'
+                          className='font-semibold text-xs'
+                          variant='outlined'
                           onClick={navigateToSignUp}
+                          
                         >
                           Regístrate
-                        </button>
+                        </Button>
                       </div>
                     </form>
                   </div>

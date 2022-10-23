@@ -6,7 +6,6 @@ import { backendString } from '../backendConnection'
 import Borrar from '../../images/delete.png';
 const Swal = require('sweetalert2');
 
-
 function ElementsTable({ antibiotic }) {
 
   const navegar = useNavigate()

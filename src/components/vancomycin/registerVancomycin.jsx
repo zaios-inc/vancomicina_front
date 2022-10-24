@@ -151,7 +151,7 @@ function RegisterVancomycin({ setEnable }) {
                       <Input
                         type='number'
                         maxLength="6"
-                        label='Intervalo'
+                        label='Intervalo (hrs)'
                         variant='standard'
                         size='lg'
                         color='cyan'
@@ -159,7 +159,7 @@ function RegisterVancomycin({ setEnable }) {
                         onChange={(e) => { (setIntervalValueValue(e.target.value)) }}
                       />
                       <Input type='number'
-                        label='Tiempo de infusión'
+                        label='Tiempo de infusión (min)'
                         maxLength="6"
                         variant='standard'
                         size='lg'
@@ -171,7 +171,7 @@ function RegisterVancomycin({ setEnable }) {
                       <Input
                         type='number'
                         maxLength="6"
-                        label='Dosis de carga'
+                        label='Dosis de carga (mg)'
                         variant='standard'
                         size='lg'
                         color='cyan'

@@ -58,7 +58,7 @@ function Antibiotic() {
     axios.post(`${backendString}/antibiotic/create`, newAntibiotic)
       .then(res => {
         Swal.fire({
-          title: 'Antibiotico agregado correctamente',
+          title: 'Antibiótico agregado correctamente',
           icon: 'success'
       })
     }).then( err => {console.log(err)})

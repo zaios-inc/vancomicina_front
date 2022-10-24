@@ -6,6 +6,7 @@ import ButterfliesZaios from '../images/ButterfliesZaios.png';
 import ZaiosLogo from '../images/ZaiosLogo.png';
 import { Button, Input } from '@material-tailwind/react';
 import { backendString } from './backendConnection';
+const Swal = require('sweetalert2');
 
 function Login({ setLogin }) {
 
@@ -39,7 +40,10 @@ function Login({ setLogin }) {
         setLogin(true)
         navigate('../home')
       } else {
-        alert('usuario no encontrado')
+        Swal.fire({
+          title: 'Usuario no encontrado',
+          icon: 'error'
+        })
       }
     })
 

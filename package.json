@@ -19,6 +19,7 @@
     "react-router-dom": "^6.4.1",
     "react-scripts": "5.0.1",
     "react-select": "^5.4.0",
+    "react-table-scrollbar": "^0.1.11",
     "react-tsparticles": "^2.3.3",
     "sweetalert2": "^11.4.37",
     "tsparticles": "^2.3.4",

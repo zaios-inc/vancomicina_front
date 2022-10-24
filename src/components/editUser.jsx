@@ -68,15 +68,15 @@ function User() {
             <Sidebar />
           </div>
 
-          <div className='w-full'  style={{ background: 'linear-gradient(to right, #261089, #9190ff, #261089)' }}>
+          <div className='w-full' style={{ background: 'linear-gradient(to right, #261089, #9190ff, #261089)' }}>
             <div className='flex justify-center items-center'>
-              <Card className='w-auto h-1/2 shadow-2xl shadow-[#1a237e] z-10'>
+              <Card className='w-auto h-1/2 shadow-2xl shadow-[#261089] z-10'>
                 <CardHeader
                   variant='gradient'
-                  className='grid h-20 place-items-center shadow-lg shadow-[#0097a7] bg-[#0097a7]'
+                  className='grid h-20 place-items-center shadow-lg shadow-[#261089] bg-[#261089]'
                 >
-                  <Typography variant='h3' color='white'>
-                    Datos del Usuario
+                  <Typography variant='h3' color='white' className='p-5'>
+                    Información de la cuenta
                   </Typography>
                 </CardHeader>
                 <div className='flex'>
@@ -88,7 +88,7 @@ function User() {
                         label='Nombre:'
                         variant='standard'
                         size='lg'
-                        color='cyan'
+                        color='deep-purple'
                         value={name}
                         onChange={(e) => { (setName(e.target.value)) }}
                       />
@@ -98,7 +98,7 @@ function User() {
                         label='Correo electrónico:'
                         variant='standard'
                         size='lg'
-                        color='cyan'
+                        color='deep-purple'
                         value={email}
                         onChange={(e) => { (setEmail(e.target.value)) }}
                       />
@@ -111,15 +111,15 @@ function User() {
                           onClick={showChecked}
                           required
                         />
-                        <label>Cambiar contraseña</label>
-                        <div id='content' className='invisible'>
+                        <label className='pl-2'>Cambiar contraseña</label>
+                        <div id='content' className='invisible pt-3'>
                           <Input
                             type='text'
                             maxLength="30"
-                            label='Nueva Contraseña:'
+                            placeholder='Nueva contraseña:'
                             variant='standard'
                             size='lg'
-                            color='cyan'
+                            color='deep-purple'
                             value={newpassword}
                             onChange={(e) => { (setNewPassword(e.target.value)) }}
                           />
@@ -131,8 +131,8 @@ function User() {
 
                 <CardFooter className='pt-0'>
                   <div>
-                    <Button variant='gradient' fullWidth color='blue' className='z-0'
-                      style={{ background: 'linear-gradient(to right, #4dd0e1, #00bcd4, #0097a7, #00bcd4 , #4dd0e1)' }}
+                    <Button variant='gradient' fullWidth color='deep-purple' className='z-0'
+                      style={{ background: 'linear-gradient(to right, #261089, #9190ff, #261089)' }}
                       onClick={editarUsuario}
                     >
                       Guardar cambios

@@ -81,7 +81,7 @@ function Antibiotic() {
           <Sidebar />
 
         <div
-          className="w-full flex items-center lg:pl-64"
+          className="w-full h-screen flex items-center lg:pl-64"
           style={{
             background: "linear-gradient(to right, #533eab, #9190ff, #533eab)",
           }}

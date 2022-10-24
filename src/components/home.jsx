@@ -8,10 +8,11 @@ function Home() {
       <Sidebar />
 
       <div className='lg:pl-64'>
-        <div style={{ background: 'linear-gradient(to right, #261089, #6674ff, #9190ff, #6674ff, #261089)' }} >
-          <div className='bg-no-repeat bg-center flex justify-center items-center' >
+        <div style={{ background: 'linear-gradient(to right, #261089, #6674ff, #9190ff, #6674ff, #261089)' }}
+          className='h-screen flex justify-center items-center' >
+          <div className='bg-no-repeat bg-center flex' >
             <img src={ZaiosLogoNoBg} className='z-10'
-              alt='Zaios logo'/>
+              alt='Zaios logo' />
             <ParticlesBackground />
           </div>
         </div>

@@ -12,11 +12,11 @@ function PatientData() {
 
   useEffect(() => {
     axios.get(`${backendString}/patient/primaryData`).then((res) => {
-      setIMC(res.data.IMC);
-      setClearence(res.data.clearence);
-      setWeightAjustado(res.data.weightAjustado);
-      setWeightFinal(res.data.weightFinal);
-      setWeightIdeal(res.data.weightIdeal);
+      setIMC(res.data.IMC.toFixed(3));
+      setClearence(res.data.clearence.toFixed(3));
+      setWeightAjustado(res.data.weightAjustado.toFixed(3));
+      setWeightFinal(res.data.weightFinal.toFixed(3));
+      setWeightIdeal(res.data.weightIdeal.toFixed(3));
       console.log(res.data);
     });
   });

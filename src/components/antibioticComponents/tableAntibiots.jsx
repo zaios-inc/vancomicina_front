@@ -7,6 +7,7 @@ import { BsPlusLg } from "react-icons/bs";
 import Sidebar from '../sidebar'
 import ParticlesBackground from '../particles'
 import ElementsTable from './elementsTable';
+import TableScrollbar from 'react-table-scrollbar';
 
 export default function Table() {
 
@@ -59,20 +60,22 @@ export default function Table() {
           <div className="flex justify-center">
             <div className="w-auto z-10">
               <div className="overflow-hidden border rounded-lg">
-                <table className=" divide-y divide-black">
-                  <thead className="bg-indigo-500">
-                    <tr>
-                      <th className="py-3">
-                      </th>
-                      <th className="px-6 py-3 text-base font-bold text-center text-white uppercase ">Id</th>
-                      <th className="px-6 text-base font-bold text-center text-white uppercase ">Nombre</th>
-                      <th className="px-6 text-base font-bold text-center text-white uppercase ">Clase</th>
-                      <th className="px-6 text-base font-bold text-center text-white uppercase ">Editar</th>
-                      <th className="px-6 text-base font-bold text-center text-white uppercase ">Eliminar</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-500 bg-white">{listAntibiotics}</tbody>
-                </table>
+                <TableScrollbar height='550px'>
+                  <table className=" divide-y divide-black">
+                    <thead className="bg-indigo-500">
+                      <tr>
+                        <th className="py-3">
+                        </th>
+                        <th className="px-6 py-3 text-base font-bold text-center text-white uppercase ">Id</th>
+                        <th className="px-6 text-base font-bold text-center text-white uppercase ">Nombre</th>
+                        <th className="px-6 text-base font-bold text-center text-white uppercase ">Clase</th>
+                        <th className="px-6 text-base font-bold text-center text-white uppercase ">Editar</th>
+                        <th className="px-6 text-base font-bold text-center text-white uppercase ">Eliminar</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-500 bg-white">{listAntibiotics}</tbody>
+                  </table>
+                </TableScrollbar>
               </div>
             </div>
           </div>

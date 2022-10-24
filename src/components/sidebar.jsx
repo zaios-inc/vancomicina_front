@@ -34,7 +34,7 @@ function Sidebar() {
               <NavLink
                 to='/home'
                 exact
-                className='flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg'
+                className='flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg hover:bg-[#9190ff]'
               >
                 <div className='flex items-center'>
                   <div className='text-2xl'>
@@ -50,7 +50,7 @@ function Sidebar() {
               <NavLink
                 to='/listAntibotics'
                 exact
-                className='flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg'
+                className='flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg hover:bg-[#9190ff]'
               >
                 <div className='flex items-center'>
                   <div className='text-2xl'>
@@ -66,7 +66,7 @@ function Sidebar() {
               <NavLink
                 to='/patient'
                 exact
-                className='flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg'
+                className='flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg hover:bg-[#9190ff]'
               >
                 <div className='flex items-center'>
                   <div className='text-2xl'>
@@ -82,7 +82,7 @@ function Sidebar() {
               <NavLink
                 to='/vancomycin'
                 exact
-                className='flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg'
+                className='flex items-center gap-4 text-sm text-gray-700 font-light px-4 py-3 rounded-lg hover:bg-[#9190ff]'
               >
                 <div className='flex items-center'>
                   <div className='text-2xl'>

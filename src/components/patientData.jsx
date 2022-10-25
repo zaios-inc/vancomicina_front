@@ -5,7 +5,7 @@ function PatientData({
   IMC,
   weightIdeal,
   weightAjustado,
-  weightFinal,
+  weightFinal
 }) {
   return (
     <div className="w-full text-center">

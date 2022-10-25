@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { backendString } from './backendConnection'
+import ZaiosLogo from '../images/ZaiosLogo.png';
 import axios from 'axios';
 
 function Sidebar() {
@@ -8,9 +9,9 @@ function Sidebar() {
   const [user, setUser] = useState([])
 
   useEffect(() => {
-  axios.get(`${backendString}/user/getlogin`).then(res => {
-    setUser(res.data)
-  })
+    axios.get(`${backendString}/user/getlogin`).then(res => {
+      setUser(res.data)
+    })
   }, [])
 
   return (
@@ -18,14 +19,21 @@ function Sidebar() {
       className={`h-screen fixed top-0 md:left-0 ${showSidebar} overflow-y-auto flex-row flex-nowrap overflow-hidden shadow-2xl shadow-[#212121] bg-white w-64 z-10 py-4 px-6 transition-all duration-300`}
     >
       <div className='flex-col items-stretch min-h-full flex-nowrap px-0 relative'>
-        <a
-          href='https://zaios.com.co'
-          target='_blank'
-          rel='noreferrer'
-          className='mt-2 text-center w-full inline-block'
-        >
-          <div className='text center font-black text-xl select-none'>Monitoreo de fármacos</div>
-        </a>
+        <div className='text-center font-black text-xl select-none'>Monitoreo de fármacos</div>
+          <a
+            href='https://zaios.com.co'
+            target='_blank'
+            rel='noreferrer'
+            className='mt-2 text-center w-full inline-block'
+          >
+            <div className='flex justify-center items-center pl-3'>
+              <img
+                src={ZaiosLogo}
+                className='w-28'
+                alt='Zaios Logo'
+              />
+            </div>
+          </a>
         <div className='flex flex-col'>
           <hr className='my-4 min-w-full' />
 
@@ -55,7 +63,7 @@ function Sidebar() {
                 <div className='flex items-center'>
                   <div className='text-2xl'>
                     <img src='https://cdn-icons-png.flaticon.com/512/822/822092.png' className='w-8'
-                      alt='Icono antibióticos'/>
+                      alt='Icono antibióticos' />
                   </div>
                   <p className='text-lg pl-3 text-black text-center select-none'>Antibióticos</p>
                 </div>
@@ -70,8 +78,8 @@ function Sidebar() {
               >
                 <div className='flex items-center'>
                   <div className='text-2xl'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/2718/2718083.png' className='w-9' 
-                      alt='Icono paciente'/>
+                    <img src='https://cdn-icons-png.flaticon.com/512/2718/2718083.png' className='w-9'
+                      alt='Icono paciente' />
                   </div>
                   <p className='text-lg pl-3 text-black text-center select-none'>Paciente</p>
                 </div>
@@ -86,8 +94,8 @@ function Sidebar() {
               >
                 <div className='flex items-center'>
                   <div className='text-2xl'>
-                    <img src='https://cdn-icons-png.flaticon.com/512/4148/4148500.png' className='w-8' 
-                      alt='Icono inyección'/>
+                    <img src='https://cdn-icons-png.flaticon.com/512/4148/4148500.png' className='w-8'
+                      alt='Icono inyección' />
                   </div>
                   <p className='text-lg pl-3 text-black text-center select-none'>Vancomicina</p>
                 </div>

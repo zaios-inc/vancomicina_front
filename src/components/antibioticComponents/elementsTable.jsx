@@ -22,7 +22,7 @@ function ElementsTable({ antibiotic }) {
         if (result.isDenied) {
           axios.post(`${backendString}/antibiotic/deleteAntibiotic`, { _id: idAntibiotic }).then(res => {
           Swal.fire('Antibiotico Eliminado', '', 'success')
-          navegar(0)
+          navegar('/antibiotic')
           }).catch(err => console.log(err))
         }
       })

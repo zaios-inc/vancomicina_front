@@ -1,11 +1,13 @@
 import ParticlesBackground from './particles';
 import Sidebar from './sidebar';
+import Navbar from './navbar';
 import ZaiosLogoNoBg from '../images/ZaiosLogoNoBg.png'
 
 function Home() {
   return (
     <div>
       <Sidebar />
+      <Navbar />
 
       <div className='lg:pl-64'>
         <div style={{ background: 'linear-gradient(to right, #261089, #6674ff, #9190ff, #6674ff, #261089)' }}

@@ -5,7 +5,6 @@ import Sidebar from './sidebar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { backendString } from './backendConnection'
-import Navbar from './navbar';
 
 const Swal = require('sweetalert2');
 

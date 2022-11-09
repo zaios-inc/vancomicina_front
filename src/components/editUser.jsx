@@ -49,7 +49,6 @@ function User() {
 
   function showChecked() {
     const element = document.getElementById('divpassword');
-    console.log(show.checked)
     if (show.checked === true) {
       element.className = 'visible pt-3';
     } else {
@@ -67,10 +66,11 @@ function User() {
           background: 'linear-gradient(to right, #261089, #6674ff, #9190ff, #6674ff, #261089)',
         }}
       >
-        <Card className='w-auto h-1/2 shadow-2xl shadow-[#261089] z-10'>
+        <Card className='w-auto h-1/2 shadow-2xl shadow-[] z-10'>
           <CardHeader
             variant='gradient'
             className='grid h-20 place-items-center shadow-lg pl-5 pr-5 shadow-[#261089] bg-[#261089]'
+            color="#261089"
           >
             <Typography variant="h3" color="white">
               Datos del usuario

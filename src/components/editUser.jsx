@@ -1,7 +1,8 @@
-import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter } from '@material-tailwind/react';
+import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter, Navbar } from '@material-tailwind/react';
 import { useState, useEffect } from 'react'
 import ParticlesBackground from './particles';
 import Sidebar from './sidebar';
+import Navbar from './navbar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { backendString } from './backendConnection'
@@ -15,7 +16,6 @@ function User() {
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [newpassword, setNewPassword] = useState('');
-  const [user, setUser] = useState({})
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
 
@@ -25,7 +25,7 @@ function User() {
       setEmail(res.data.email)
       setName(res.data.name)
       setPassword(res.data.password)
-      setUser(res.data)
+      setShow(document.getElementById('newpassword'))
     })
   }, [])
 
@@ -49,19 +49,19 @@ function User() {
   }
 
   function showChecked() {
-    const element = document.getElementById('content');
-    setShow(document.getElementById('newpassword'))
-    console.log(user)
+    const element = document.getElementById('divpassword');
+    console.log(show.checked)
     if (show.checked === true) {
-      element.className = 'visible';
+      element.className = 'visible pt-3';
     } else {
-      element.className = 'invisible';
+      element.className = 'invisible pt-3';
     }
   }
 
   return (
     <div className='flex lg:pl-64'>
       <Sidebar />
+      <Navbar />
 
       <div
         className='w-full h-screen flex justify-center items-center'
@@ -73,9 +73,10 @@ function User() {
           <CardHeader
             variant='gradient'
             className='grid h-20 place-items-center shadow-lg pl-5 pr-5 shadow-[#261089] bg-[#261089]'
+            color='#261089'
           >
-            <Typography variant='h3' color='white' className='text-center'>
-              Información de la cuenta
+            <Typography variant="h3" color="white">
+              Datos del usuario
             </Typography>
           </CardHeader>
           <div className='flex'>
@@ -111,7 +112,7 @@ function User() {
                     required
                   />
                   <label className='pl-2'>Cambiar contraseña</label>
-                  <div id='content' className='invisible pt-3'>
+                  <div id='divpassword' className='invisible pt-3'>
                     <Input
                       type='text'
                       maxLength='30'

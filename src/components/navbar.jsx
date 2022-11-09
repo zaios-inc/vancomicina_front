@@ -1,12 +1,20 @@
 import ZaiosLogo from '../images/ZaiosLogo.png';
+import React, { useState } from 'react';
 import { backendString } from "./backendConnection";
 
 function Navbar() {
-    const menu = document.querySelector('#menu');
+    const menu = document.getElementById('menu');
+    const [show, setShow] = useState(false);
 
     function showBar() {
-        console.log('me estan haciendo click')
-        menu.classList.toggle('hidden')
+        console.log(show)
+        if (show === false) {
+            setShow(true)
+            menu.className = 'w-full md:block md:w-auto hidden';
+        } else {
+            setShow(false)
+            menu.className = 'w-full md:block md:w-auto';
+        }
     }
 
     return (

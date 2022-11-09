@@ -71,7 +71,6 @@ function User() {
           <CardHeader
             variant='gradient'
             className='grid h-20 place-items-center shadow-lg pl-5 pr-5 shadow-[#261089] bg-[#261089]'
-            color='#261089'
           >
             <Typography variant="h3" color="white">
               Datos del usuario

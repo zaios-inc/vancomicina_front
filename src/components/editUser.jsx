@@ -1,7 +1,8 @@
-import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter, Navbar } from '@material-tailwind/react';
+import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter} from '@material-tailwind/react';
 import { useState, useEffect } from 'react'
 import ParticlesBackground from './particles';
 import Sidebar from './sidebar';
+import Navbar from './navbar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { backendString } from './backendConnection'

@@ -58,9 +58,10 @@ function User() {
   }
 
   return (
-    <div className='flex lg:pl-64'>
-      <Sidebar />
+    <div>
       <Navbar />
+      <Sidebar />
+    <div className='flex lg:pl-64'>
       <div
         className='w-full h-screen flex justify-center items-center'
         style={{
@@ -143,6 +144,7 @@ function User() {
 
       <ParticlesBackground />
     </div>
+  </div>
   );
 }
 

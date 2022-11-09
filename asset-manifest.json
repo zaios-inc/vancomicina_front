@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/vancomicina_front/static/css/main.c68221c3.css",
-    "main.js": "/vancomicina_front/static/js/main.81249361.js",
+    "main.css": "/vancomicina_front/static/css/main.68cc0ef9.css",
+    "main.js": "/vancomicina_front/static/js/main.6d02a471.js",
     "static/media/ButterfliesZaios.png": "/vancomicina_front/static/media/ButterfliesZaios.ccb20cbcbcdc05e98431.png",
     "static/media/ZaiosLogoNoBg.png": "/vancomicina_front/static/media/ZaiosLogoNoBg.fc73f2f00dcedfc46dda.png",
     "static/media/ZaiosLogo.png": "/vancomicina_front/static/media/ZaiosLogo.950ed1a063b66a19be59.png",
     "static/media/editar.png": "/vancomicina_front/static/media/editar.38f9e4488e8153564260.png",
     "static/media/vaccine.png": "/vancomicina_front/static/media/vaccine.f12fa3720300948566f1.png",
     "index.html": "/vancomicina_front/index.html",
-    "main.c68221c3.css.map": "/vancomicina_front/static/css/main.c68221c3.css.map",
-    "main.81249361.js.map": "/vancomicina_front/static/js/main.81249361.js.map"
+    "main.68cc0ef9.css.map": "/vancomicina_front/static/css/main.68cc0ef9.css.map",
+    "main.6d02a471.js.map": "/vancomicina_front/static/js/main.6d02a471.js.map"
   },
   "entrypoints": [
-    "static/css/main.c68221c3.css",
-    "static/js/main.81249361.js"
+    "static/css/main.68cc0ef9.css",
+    "static/js/main.6d02a471.js"
   ]
 }

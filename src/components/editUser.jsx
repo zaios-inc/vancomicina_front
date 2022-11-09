@@ -2,10 +2,10 @@ import { Card, CardBody, Input, CardHeader, Typography, Button, CardFooter, Navb
 import { useState, useEffect } from 'react'
 import ParticlesBackground from './particles';
 import Sidebar from './sidebar';
-import Navbar from './navbar';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { backendString } from './backendConnection'
+import Navbar from './navbar';
 
 const Swal = require('sweetalert2');
 
@@ -62,7 +62,6 @@ function User() {
     <div className='flex lg:pl-64'>
       <Sidebar />
       <Navbar />
-
       <div
         className='w-full h-screen flex justify-center items-center'
         style={{
